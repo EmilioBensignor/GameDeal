@@ -63,67 +63,148 @@
     <main class="main-content">
         <!-- Hero -->
         <section class="hero">
-            <video src="./videos/Ceramica-y-Vino.mp4" class="hero-video" autoplay muted loop playsinline></video>
+            <img src="./img/home/Hero-Placeholder.png" />
             <div>
                 <h1>Encuentra, compara y decide qué jugar</h1>
                 <p>
                     Nuestra plataforma te permite buscar y filtrar videojuegos de manera rápida y sencilla. Compara
                     precios y lee reseñas para tomar la mejor decisión de compra.
                 </p>
-                <button class="primary-button abrir-modal">Quiero mi lugar</button>
+                <div>
+                    <input id="search" type="text" placeholder="Busca un juego">
+                    <a href="#" class="primary-button abrir-modal">Comparar precios</a>
+                </div>
             </div>
         </section>
-        <div class="parallax-content gradiente-principal">
+        <div class="parallax-content">
             <section>
-
+                <div class="mas-jugado">
+                    <div>
+                        <h2>Lo más jugado</h2>
+                        <p>
+                            Explorá juegos en las categorías más populares entre los gamers.
+                        </p>
+                    </div>
+                    <div id="contenedor-categorias" class="categorias">
+                        <button>Ver todo</button>
+                    </div>
+                    <div class="carousel">
+                        <div>
+                            <div id="contenedor-mas-jugados"
+                                class="flex transition-transform duration-500 ease-in-out py-2">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flechas-carousel">
+                        <button id="anterior-eventos" class="flecha-carousel flecha-izquierda">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24">
+                                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m15 6l-6 6l6 6" />
+                            </svg>
+                        </button>
+                        <button id="siguiente-eventos" class="flecha-carousel flecha-derecha">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24">
+                                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m9 6l6 6l-6 6" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="donde-comprar">
+                    <div>
+                        <h2>Dónde conviene comprar</h2>
+                        <p>
+                            Descubre las mejores ofertas del día en videojuegos y ahorra en tus compras.
+                        </p>
+                    </div>
+                    <div id="contenedor-comparar" class="contenedor-comparar">
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="como-funciona">
+                    <div>
+                        <h2>Cómo funciona</h2>
+                        <p>
+                            En tres simples pasos encontrás el mejor precio para tu próximo juego.
+                        </p>
+                    </div>
+                    <div id="contenedor-como-funciona"></div>
+                </div>
+            </section>
+            <section>
+                <div class="opiniones">
+                    <div>
+                        <h2>Lo que opinan los gamers</h2>
+                        <p>
+                            Nuestra comunidad ya está ahorrando y descubriendo sus próximos juegos favoritos.
+                        </p>
+                    </div>
+                    <div class="carousel">
+                        <div>
+                            <div id="contenedor-opiniones"
+                                class="contenedor-opiniones flex transition-transform duration-500 ease-in-out">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flechas-carousel">
+                        <button id="anterior-opiniones" class="flecha-carousel flecha-izquierda">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24">
+                                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m15 6l-6 6l6 6" />
+                            </svg>
+                        </button>
+                        <button id="siguiente-opiniones" class="flecha-carousel flecha-derecha">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24">
+                                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m9 6l6 6l-6 6" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="unete-comunidad">
+                    <div>
+                        <h2>¡Únete a nuestra comunidad!</h2>
+                        <p>
+                            Miles de gamers ya comparan precios cada día. Súmate y empieza a ahorrar también.
+                        </p>
+                        <a href="#" class="black-button">Unirme</a>
+                    </div>
+                    <img src="./img/home/Juego-Placeholder.png" alt="">
+                </div>
             </section>
         </div>
     </main>
     <!-- Footer -->
     <footer>
         <div>
-            <a href="./index.php" class="logo">Ceramica y vino</a>
+            <a href="./index.html" class="logo">GameDeal</a>
             <nav>
-                <ul>
-                    <div>
-                        <li>
-                            <a href="./nosotros.php">Nosotros</a>
-                        </li>
-                    </div>
-                    <div class="redes">
-                        <li>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2">
-                                    <path d="M4 8a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z" />
-                                    <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0-6 0m7.5-4.5v.01" />
-                                </g>
-                            </svg>
-                            <a href="https://www.instagram.com/ceramicayvino/" target="_blank">@ceramicayvino</a>
-                        </li>
-                        <li>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2">
-                                    <path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                                    <path d="m3 7l9 6l9-6" />
-                                </g>
-                            </svg>
-                            <a href="mailto:holaceramicayvino@gmail.com" target="_blank">holaceramicayvino@gmail.com</a>
-                        </li>
-                    </div>
+                <ul class="nav-list">
+                    <li>
+                        <a href="#">Catálogo</a>
+                    </li>
+                    <li>
+                        <a href="#">Ofertas</a>
+                    </li>
+                    <li>
+                        <a href="#">Lanzamientos</a>
+                    </li>
                 </ul>
             </nav>
         </div>
-        </div>
         <div>
-            <div>
-                <p class="copyright">© 2025 Cerámica Vino. Todos los
+            <div class="copyright">
+                <p>© 2025 GameDeal. Todos los
                     derechos reservados.</p>
             </div>
         </div>
     </footer>
-    <script src="./main.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 
 </html>
