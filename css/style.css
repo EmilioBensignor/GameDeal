@@ -226,7 +226,7 @@ header>div {
 }
 
 /* Main */
-.main-content {
+main {
     display: flex;
     flex-direction: column;
     background-color: var(--color-blanco);
