@@ -392,6 +392,10 @@ main {
     text-decoration: none;
 }
 
+.mas-jugado .black-button {
+    max-width: 12rem;
+}
+
 /* Donde comprar */
 
 .donde-comprar>div {
@@ -899,7 +903,9 @@ footer ul div li a {
         font-size: 1.5rem;
     }
 
-    .hero a {
+    .hero a,
+    .mas-jugado .black-button,
+    .unete-comunidad>div a {
         max-width: 14rem;
     }
 
@@ -907,7 +913,8 @@ footer ul div li a {
     .primary-button,
     .card-mas-jugado p,
     .card-mas-jugado a,
-    .mas-jugado .categorias button {
+    .mas-jugado .categorias button,
+    .black-button {
         font-size: 1.125rem;
     }
 
@@ -950,11 +957,25 @@ footer ul div li a {
         gap: 2rem;
     }
 
-    .black-button {
-        font-size: 1.125rem;
+    .mas-jugado .carousel {
+        overflow: visible;
     }
 
-    .unete-comunidad>div a {
-        max-width: 14rem;
+    .mas-jugado .carousel>div {
+        overflow: visible;
+    }
+
+    .mas-jugado #contenedor-mas-jugados {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        transform: none !important;
+    }
+
+    .mas-jugado .card-mas-jugado {
+        min-width: auto;
+    }
+
+    .mas-jugado .flechas-carousel {
+        display: none;
     }
 }
