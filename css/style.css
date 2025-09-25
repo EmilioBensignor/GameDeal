@@ -46,6 +46,7 @@ h3 {
     align-items: center;
     position: relative;
     z-index: 3;
+    background-color: var(--color-blanco);
 }
 
 .parallax-content>*:first-of-type {
@@ -231,6 +232,7 @@ main {
 /* Hero */
 .hero {
     width: 100%;
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -656,6 +658,10 @@ footer ul div li a {
         font-size: 2rem;
     }
 
+    .hero {
+        margin-top: -78px;
+    }
+
     .hero>div {
         gap: 3rem;
     }
@@ -733,12 +739,80 @@ footer ul div li a {
 /* 1080px */
 
 @media (width >=1080px) {
+    header {
+        padding: 2rem 4rem;
+    }
+
+    header>div {
+        justify-content: space-between;
+    }
+
+    .menu-button {
+        display: none;
+    }
+
+    .nav-desktop {
+        display: flex;
+    }
+
+    .nav-desktop .nav-list {
+        flex-direction: row;
+        gap: 3rem;
+        margin-top: 0;
+    }
+
+    .nav-list a {
+        font-size: 1.25rem;
+    }
+
+    .logo {
+        font-size: 2.5rem;
+    }
+
+    section {
+        padding: 4rem;
+    }
+
+    section>div {
+        gap: 3rem;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    .subtitulo,
+    .hero p {
+        font-size: 1.25rem;
+    }
+
+    .hero {
+        margin-top: -111px;
+    }
+
+    .hero p {
+        max-width: 45rem;
+    }
+
     #contenedor-mas-jugados {
-        gap: 2rem;
+        gap: 2.5rem;
     }
 
     .card-mas-jugado {
         min-width: calc(33.333% - 1.333rem);
+    }
+
+    #contenedor-comparar {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .donde-comprar .card-comparar {
+        max-width: 100%;
     }
 
     #contenedor-opiniones {
@@ -747,5 +821,140 @@ footer ul div li a {
 
     .card-opinion {
         min-width: calc(33.333% - 1.333rem);
+    }
+
+    .unete-comunidad {
+        flex-direction: row;
+    }
+
+    footer {
+        padding: 4rem;
+    }
+
+    footer>div {
+        justify-content: space-between;
+        flex-direction: row;
+    }
+
+    .copyright {
+        font-size: 0.875rem;
+        padding-top: 3rem;
+    }
+}
+
+/* 1440px */
+
+@media (width >=1440px) {
+    header {
+        padding: 2.25rem 5rem;
+    }
+
+    .logo {
+        font-size: 2.75rem;
+    }
+
+    .nav-desktop .nav-list {
+        gap: 4rem;
+    }
+
+    .nav-list a {
+        font-size: 1.5rem;
+    }
+
+    h1 {
+        max-width: 52rem;
+        font-size: 4rem;
+    }
+
+    h2 {
+        font-size: 2.75rem;
+    }
+
+    h3 {
+        font-size: 1.75rem;
+    }
+
+    section {
+        padding: 4rem 5rem;
+    }
+
+    section>div {
+        gap: 4rem;
+    }
+
+    .hero {
+        margin-top: -123px;
+    }
+
+    .hero div>div {
+        max-width: 42rem;
+    }
+
+    .hero p {
+        max-width: 55rem;
+    }
+
+    .subtitulo,
+    .hero p {
+        font-size: 1.5rem;
+    }
+
+    .hero a {
+        max-width: 14rem;
+    }
+
+    .hero input[type="text"],
+    .primary-button,
+    .card-mas-jugado p,
+    .card-mas-jugado a,
+    .mas-jugado .categorias button {
+        font-size: 1.125rem;
+    }
+
+    .mas-jugado .categorias {
+        gap: 1rem;
+    }
+
+    #contenedor-mas-jugados,
+    #contenedor-comparar,
+    #contenedor-como-funciona {
+        gap: 3rem;
+    }
+
+    .card-mas-jugado>div {
+        gap: 1.5rem;
+    }
+
+    .card-mas-jugado span {
+        font-size: 1rem;
+    }
+
+    .card-como-funciona img {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .card-comparar>div p {
+        font-size: 1.25rem;
+    }
+
+    .card-comparar ul li {
+        font-size: 1rem;
+    }
+
+    .card-opinion .estrellas {
+        font-size: 1.25rem;
+    }
+
+    .unete-comunidad>div {
+        gap: 2rem;
+    }
+
+    .black-button {
+        font-size: 1.125rem;
+    }
+
+    .unete-comunidad>div a {
+        max-width: 14rem;
     }
 }
