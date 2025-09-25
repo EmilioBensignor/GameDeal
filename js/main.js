@@ -55,6 +55,24 @@ const juegosMasJugados = [
         nombre: "Split Fiction",
         texto: "Vive una historia surreal compartida, donde cada jugador percibe mundos diferentes y debe colaborar."
     },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Cooperativo",
+        nombre: "Split Fiction",
+        texto: "Vive una historia surreal compartida, donde cada jugador percibe mundos diferentes y debe colaborar."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Cooperativo",
+        nombre: "Split Fiction",
+        texto: "Vive una historia surreal compartida, donde cada jugador percibe mundos diferentes y debe colaborar."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Cooperativo",
+        nombre: "Split Fiction",
+        texto: "Vive una historia surreal compartida, donde cada jugador percibe mundos diferentes y debe colaborar."
+    },
 ];
 
 // Comparar
@@ -238,6 +256,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const totalJuegos = juegosMasJugados.length;
 
     function obtenerJuegosPorVista() {
+        if (window.innerWidth >= 1080) return 3;
         if (window.innerWidth >= 768) return 2;
         return 1;
     }
@@ -370,17 +389,40 @@ document.addEventListener('DOMContentLoaded', function () {
     let indiceActual = 0;
     const totalOpiniones = opiniones.length;
 
+    function obtenerOpinionesPorVista() {
+        if (window.innerWidth >= 1080) return 3;
+        if (window.innerWidth >= 768) return 2;
+        return 1;
+    }
+
+    function obtenerIndiceMaximo() {
+        const opinionesPorVista = obtenerOpinionesPorVista();
+        return Math.max(0, totalOpiniones - opinionesPorVista);
+    }
+
     function actualizarCarousel() {
-        contenedorOpiniones.style.transform = `translateX(-${indiceActual * 100}%)`;
+        const opinionesPorVista = obtenerOpinionesPorVista();
+        const anchoSlide = 100 / opinionesPorVista;
+        contenedorOpiniones.style.transform = `translateX(-${indiceActual * anchoSlide}%)`;
     }
 
     function irSiguiente() {
-        indiceActual = indiceActual >= totalOpiniones - 1 ? 0 : indiceActual + 1;
+        const indiceMaximo = obtenerIndiceMaximo();
+        indiceActual = indiceActual >= indiceMaximo ? 0 : indiceActual + 1;
         actualizarCarousel();
     }
 
     function irAnterior() {
-        indiceActual = indiceActual <= 0 ? totalOpiniones - 1 : indiceActual - 1;
+        const indiceMaximo = obtenerIndiceMaximo();
+        indiceActual = indiceActual <= 0 ? indiceMaximo : indiceActual - 1;
+        actualizarCarousel();
+    }
+
+    function manejarRedimension() {
+        const indiceMaximo = obtenerIndiceMaximo();
+        if (indiceActual > indiceMaximo) {
+            indiceActual = indiceMaximo;
+        }
         actualizarCarousel();
     }
 
@@ -388,6 +430,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     botonSiguienteOpiniones.addEventListener('click', irSiguiente);
     botonAnteriorOpiniones.addEventListener('click', irAnterior);
+    window.addEventListener('resize', manejarRedimension);
 
     actualizarCarousel();
 });

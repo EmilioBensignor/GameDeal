@@ -73,10 +73,6 @@ section>div {
 /* Header */
 
 header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
     position: sticky;
     top: 0;
     z-index: 50;
@@ -267,11 +263,12 @@ main {
 }
 
 .hero p {
-    max-width: 24rem;
+    max-width: 26rem;
 }
 
 .hero div>div {
     width: 100%;
+    max-width: 26rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -344,6 +341,7 @@ main {
 
 #contenedor-mas-jugados {
     display: flex;
+    gap: 1rem;
     transition: transform 0.5s ease-in-out;
 }
 
@@ -400,13 +398,17 @@ main {
     gap: 1rem;
 }
 
-.contenedor-comparar {
+#contenedor-comparar {
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 2rem;
 }
 
-.card-comparar {
+.donde-comprar .card-comparar {
+    max-width: 25rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -446,11 +448,20 @@ main {
 /* Como funciona */
 
 .como-funciona>div {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     text-align: left;
     gap: 1rem;
+}
+
+.como-funciona>div:first-of-type {
+    align-items: center;
+}
+
+.como-funciona>div:first-of-type p {
+    text-align: center;
 }
 
 .como-funciona>div:last-of-type {
@@ -458,8 +469,11 @@ main {
 }
 
 .card-como-funciona {
+    max-width: 30rem;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
     gap: 0.75rem;
 }
 
@@ -472,6 +486,7 @@ main {
 
 .opiniones>div,
 .unete-comunidad>div {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -487,6 +502,7 @@ main {
 #contenedor-opiniones {
     width: 100%;
     display: flex;
+    gap: 1rem;
     transition: transform 0.5s ease-in-out;
 }
 
@@ -526,6 +542,10 @@ main {
 }
 
 /* Unete a nuestra comunidad */
+
+.unete-comunidad>div a {
+    max-width: 12rem;
+}
 
 .unete-comunidad img {
     width: 100%;
@@ -580,9 +600,152 @@ footer ul div li a {
 }
 
 .copyright {
+    width: 100%;
     border-top: 1px solid var(--color-blanco);
     color: var(--color-blanco);
     font-size: 0.75rem;
-    padding: 2rem;
+    padding: 2rem 2rem 0 2rem;
     margin-top: 2rem;
+}
+
+/* 768px */
+
+@media (width >=480px) {
+    .unete-comunidad img {
+        height: 17rem;
+    }
+}
+
+/* 768px */
+
+@media (width >=768px) {
+    header {
+        padding: 1.25rem 2.5rem;
+    }
+
+    .menu-button {
+        left: 2.5rem;
+    }
+
+    .logo {
+        font-size: 2rem;
+    }
+
+    .sidebar>div {
+        padding: 2rem;
+    }
+
+    .nav-list a {
+        font-size: 1.125rem;
+    }
+
+    .close-button {
+        font-size: 2rem;
+    }
+
+    section {
+        padding: 3rem 2.5rem;
+    }
+
+    h1 {
+        max-width: 40rem;
+        font-size: 2.75rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .hero>div {
+        gap: 3rem;
+    }
+
+    .hero div>div {
+        width: 100%;
+        max-width: 35rem;
+        flex-direction: row;
+    }
+
+    .hero p {
+        max-width: 42rem;
+        font-size: 1.125rem;
+    }
+
+    .hero a {
+        max-width: 12rem;
+    }
+
+    .hero input[type="text"] {
+        font-size: 1rem;
+    }
+
+    .subtitulo {
+        font-size: 1.125rem;
+    }
+
+    #contenedor-mas-jugados {
+        gap: 1.5rem;
+    }
+
+    .mas-jugado .categorias button {
+        font-size: 1rem;
+    }
+
+    .card-mas-jugado {
+        min-width: calc(50% - 0.75rem);
+    }
+
+    #contenedor-comparar {
+        gap: 2.5rem;
+    }
+
+    #contenedor-como-funciona {
+        flex-direction: row;
+        gap: 2.5rem;
+    }
+
+    .card-como-funciona {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    #contenedor-opiniones {
+        gap: 1.5rem;
+    }
+
+    .card-opinion {
+        min-width: calc(50% - 0.75rem);
+    }
+
+    .unete-comunidad img {
+        height: 22rem;
+    }
+
+    footer {
+        padding: 3rem 2.5rem;
+    }
+
+    footer .nav-list {
+        flex-direction: row;
+    }
+}
+
+/* 1080px */
+
+@media (width >=1080px) {
+    #contenedor-mas-jugados {
+        gap: 2rem;
+    }
+
+    .card-mas-jugado {
+        min-width: calc(33.333% - 1.333rem);
+    }
+
+    #contenedor-opiniones {
+        gap: 2rem;
+    }
+
+    .card-opinion {
+        min-width: calc(33.333% - 1.333rem);
+    }
 }
