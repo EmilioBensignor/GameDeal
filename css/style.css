@@ -140,19 +140,19 @@ h3 {
 
 section {
     width: 100%;
-    max-width: 1375px;
     background-color: var(--color-negro);
     color: var(--color-blanco);
     padding: 3rem 1.25rem;
-    margin: 0 auto;
 }
 
 section>div {
+    max-width: 1375px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     gap: 2.5rem;
+    margin: 0 auto;
 }
 
 /* Header */
@@ -308,6 +308,7 @@ main {
 
 .hero>div {
     width: 100%;
+    max-width: 100%;
     height: 100dvh;
     display: flex;
     flex-direction: column;
@@ -348,16 +349,32 @@ main {
 
 .hero input[type="text"] {
     width: 100%;
-    border: 1px solid var(--color-blanco);
-    background: none;
+    border: 1px solid rgba(91, 192, 190, 0.3);
+    border-radius: 0.5rem;
+    background: linear-gradient(145deg, rgba(28, 37, 65, 0.6), rgba(11, 19, 43, 0.8));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     color: var(--color-blanco);
     font-size: 1rem;
     outline: none;
     padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+    box-shadow:
+        0 4px 16px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(91, 192, 190, 0.1);
 }
 
 .hero input[type="text"]::placeholder {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.hero input[type="text"]:focus {
+    border-color: rgba(91, 192, 190, 0.6);
+    background: linear-gradient(145deg, rgba(28, 37, 65, 0.8), rgba(11, 19, 43, 1));
+    box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(91, 192, 190, 0.3),
+        0 0 0 1px rgba(91, 192, 190, 0.3) inset;
 }
 
 /* Carousel */
@@ -665,7 +682,7 @@ main {
 
 
 .mas-jugado .black-button {
-    max-width: 12rem;
+    max-width: 18rem;
 }
 
 /* Donde comprar */
@@ -685,14 +702,27 @@ main {
     gap: 2rem;
 }
 
+.donde-comprar .subtitulo {
+    max-width: 22rem;
+}
+
 .donde-comprar .card-comparar {
     max-width: 25rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    border: 1px solid var(--color-negro);
+    border: 1px solid rgba(91, 192, 190, 0.3);
+    border-radius: 1rem;
     padding: 2rem 1.5rem;
+    background: linear-gradient(145deg, rgba(28, 37, 65, 0.3), rgba(11, 19, 43, 0.5));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.4s ease;
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.4),
+        0 0 40px rgba(91, 192, 190, 0.1);
 }
+
 
 .card-comparar>div p {
     font-size: 1.125rem;
@@ -721,6 +751,22 @@ main {
 
 .card-comparar ul li svg {
     flex-shrink: 0;
+    color: var(--color-light-aqua);
+    filter: drop-shadow(0 0 4px rgba(91, 192, 190, 0.6)) drop-shadow(0 0 8px rgba(230, 125, 229, 0.3));
+}
+
+.card-comparar>div p:first-of-type {
+    color: var(--color-light-aqua);
+}
+
+.card-comparar>div p:last-of-type {
+    background: linear-gradient(135deg,
+            var(--color-light-aqua),
+            var(--color-pink),
+            var(--color-blanco));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 /* Como funciona */
@@ -732,6 +778,10 @@ main {
     align-items: center;
     text-align: left;
     gap: 1rem;
+}
+
+.como-funciona .subtitulo {
+    max-width: 20.25rem;
 }
 
 .como-funciona>div:first-of-type {
@@ -752,12 +802,39 @@ main {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 0.75rem;
+    gap: 1.5rem;
+    padding: 2rem 1.5rem;
+    border-radius: 1rem;
+    background: linear-gradient(145deg, rgba(28, 37, 65, 0.2), rgba(11, 19, 43, 0.4));
+    border: 1px solid rgba(111, 255, 233, 0.2);
+    transition: all 0.4s ease;
+    box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.3),
+        0 0 30px rgba(111, 255, 233, 0.1);
 }
 
 .card-como-funciona img {
     width: 3rem;
     height: 3rem;
+    padding: 1rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg,
+            rgba(111, 255, 233, 0.2),
+            rgba(91, 192, 190, 0.3));
+    border: 1px solid rgba(111, 255, 233, 0.3);
+    box-shadow:
+        0 0 20px rgba(111, 255, 233, 0.3),
+        0 0 40px rgba(111, 255, 233, 0.1) inset;
+    transition: all 0.3s ease;
+}
+
+.card-como-funciona h3 {
+    color: var(--color-light-aqua);
+}
+
+.card-como-funciona p {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
 }
 
 /* Opiniones */
@@ -777,6 +854,10 @@ main {
     text-align: left;
 }
 
+.opiniones .subtitulo {
+    max-width: 22.75rem;
+}
+
 #contenedor-opiniones {
     width: 100%;
     display: flex;
@@ -788,18 +869,41 @@ main {
     flex-direction: row;
 }
 
+.opiniones .flecha-carousel {
+    border-color: rgba(230, 125, 229, 0.3);
+}
+
+.opiniones .flecha-carousel svg {
+    color: var(--color-pink);
+}
+
 .card-opinion {
     min-width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    border: 1px solid var(--color-negro);
-    padding: 1.5rem;
+    gap: 1.5rem;
+    border: 1px solid rgba(230, 125, 229, 0.3);
+    border-radius: 1rem;
+    padding: 2rem 1.5rem;
+    background: linear-gradient(145deg, rgba(175, 113, 188, 0.1), rgba(179, 178, 245, 0.05));
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all 0.4s ease;
+    box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.3),
+        0 0 30px rgba(230, 125, 229, 0.1);
 }
 
 .card-opinion .estrellas {
-    color: var(--color-negro);
+    color: var(--color-pink);
     font-size: 1.125rem;
+    text-shadow: 0 0 15px rgba(230, 125, 229, 0.5);
+}
+
+.card-opinion>p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    font-style: italic;
 }
 
 .card-opinion .autor {
@@ -813,13 +917,25 @@ main {
     height: 3rem;
     border-radius: 50%;
     object-fit: cover;
+    border: 2px solid rgba(230, 125, 229, 0.4);
+    box-shadow: 0 0 20px rgba(230, 125, 229, 0.3);
 }
 
 .card-opinion .autor div p:first-of-type {
     font-weight: bold;
+    color: var(--color-pink);
+}
+
+.card-opinion .autor div p:last-of-type {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.875rem;
 }
 
 /* Unete a nuestra comunidad */
+
+.unete-comunidad .subtitulo {
+    max-width: 26.25rem;
+}
 
 .unete-comunidad>div a {
     max-width: 12rem;
@@ -950,7 +1066,7 @@ footer ul div li a {
     }
 
     .hero a {
-        max-width: 14rem;
+        max-width: 17rem;
         padding: 1rem 2.5rem;
     }
 
@@ -979,6 +1095,10 @@ footer ul div li a {
         gap: 2.5rem;
     }
 
+    .donde-comprar .subtitulo {
+        max-width: 25rem;
+    }
+
     #contenedor-como-funciona {
         flex-direction: row;
         gap: 2.5rem;
@@ -991,6 +1111,10 @@ footer ul div li a {
 
     #contenedor-opiniones {
         gap: 1.5rem;
+    }
+
+    .opiniones .subtitulo {
+        max-width: 25rem;
     }
 
     .card-opinion {
@@ -1031,7 +1155,8 @@ footer ul div li a {
         display: flex;
     }
 
-    .nav-desktop .nav-list {
+    .nav-desktop .nav-list,
+    footer .nav-list {
         flex-direction: row;
         gap: 3rem;
         margin-top: 0;
@@ -1085,6 +1210,21 @@ footer ul div li a {
         max-width: 18rem;
     }
 
+    .mas-jugado>div:first-of-type,
+    .donde-comprar>div,
+    .como-funciona>div,
+    .opiniones>div,
+    .unete-comunidad>div {
+        gap: 1.5rem;
+    }
+
+    .donde-comprar .subtitulo,
+    .como-funciona .subtitulo,
+    .opiniones .subtitulo,
+    .unete-comunidad .subtitulo {
+        max-width: 100%;
+    }
+
     #contenedor-mas-jugados {
         gap: 2.5rem;
     }
@@ -1127,6 +1267,155 @@ footer ul div li a {
         font-size: 0.875rem;
         padding-top: 3rem;
     }
+
+    .primary-button:hover::before {
+        left: 100%;
+    }
+
+    .primary-button:hover {
+        background: linear-gradient(135deg,
+                rgba(91, 192, 190, 1),
+                rgba(111, 255, 233, 0.9));
+        box-shadow:
+            0 6px 20px rgba(91, 192, 190, 0.5),
+            0 0 40px rgba(111, 255, 233, 0.4);
+        transform: translateY(-2px);
+    }
+
+    .black-button:hover::before {
+        left: 100%;
+    }
+
+    .black-button:hover {
+        background: linear-gradient(145deg, rgba(28, 37, 65, 1), rgba(11, 19, 43, 1));
+        border-color: rgba(91, 192, 190, 0.6);
+        box-shadow:
+            0 6px 20px rgba(0, 0, 0, 0.6),
+            0 0 40px rgba(91, 192, 190, 0.4),
+            0 0 0 1px rgba(91, 192, 190, 0.3) inset;
+        transform: translateY(-2px);
+    }
+
+    .menu-button svg:hover {
+        color: var(--color-aqua);
+    }
+
+    .nav-list a:hover {
+        color: var(--color-light-aqua);
+    }
+
+    .close-button:hover {
+        color: var(--color-aqua);
+    }
+
+    .hero a:hover {
+        background-color: var(--color-aqua);
+        color: var(--color-blanco);
+    }
+
+    .flecha-carousel:hover {
+        background: linear-gradient(145deg, rgba(28, 37, 65, 1), rgba(11, 19, 43, 1));
+        border-color: rgba(91, 192, 190, 0.6);
+        transform: scale(1.1);
+        box-shadow:
+            0 6px 20px rgba(0, 0, 0, 0.6),
+            0 0 30px rgba(91, 192, 190, 0.4),
+            0 0 0 1px rgba(91, 192, 190, 0.3) inset;
+    }
+
+    .flecha-carousel:hover svg {
+        color: var(--color-blanco);
+        filter: drop-shadow(0 0 8px rgba(91, 192, 190, 0.8));
+    }
+
+    .opiniones .flecha-carousel:hover {
+        border-color: var(--color-pink);
+        box-shadow:
+            0 6px 20px rgba(0, 0, 0, 0.6),
+            0 0 30px rgba(230, 125, 229, 0.4),
+            0 0 0 1px rgba(230, 125, 229, 0.3) inset;
+    }
+
+    .opiniones .flecha-carousel:hover svg {
+        filter: drop-shadow(0 0 8px rgba(230, 125, 229, 0.8));
+    }
+
+    .badge-futurista:hover::before {
+        left: 100%;
+    }
+
+    .mas-jugado .categorias button:hover:not(.active) {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(91, 192, 190, 0.4);
+        color: var(--color-blanco);
+    }
+
+    .mas-jugado .categorias button.active:hover::before {
+        left: 100%;
+    }
+
+    .card-mas-jugado:hover {
+        transform: translateY(-8px);
+        background: linear-gradient(145deg, rgba(28, 37, 65, 0.6), rgba(11, 19, 43, 0.8));
+        border-color: rgba(91, 192, 190, 0.6);
+        box-shadow:
+            0 16px 48px 0 rgba(0, 0, 0, 0.8),
+            0 0 0 1px rgba(91, 192, 190, 0.3) inset,
+            0 0 60px rgba(91, 192, 190, 0.4),
+            0 0 100px rgba(111, 255, 233, 0.2);
+    }
+
+    .card-mas-jugado:hover::before {
+        opacity: 1;
+    }
+
+    .card-mas-jugado:hover img {
+        filter: brightness(1) contrast(1.15);
+    }
+
+    .card-mas-jugado:hover .card-footer {
+        color: var(--color-blanco);
+    }
+
+    .card-mas-jugado:hover .card-footer .explorar-text::after {
+        width: 100%;
+    }
+
+    .card-mas-jugado:hover .card-footer svg {
+        transform: translateX(4px);
+    }
+
+    .card-mas-jugado:hover span::before {
+        left: 100%;
+    }
+
+    /* Hovers cards de comparar */
+    .donde-comprar .card-comparar:hover {
+        transform: translateY(-8px);
+        border-color: rgba(91, 192, 190, 0.6);
+        background: linear-gradient(145deg, rgba(28, 37, 65, 0.5), rgba(11, 19, 43, 0.7));
+        box-shadow:
+            0 16px 40px rgba(0, 0, 0, 0.7),
+            0 0 60px rgba(91, 192, 190, 0.3),
+            0 0 0 1px rgba(91, 192, 190, 0.2) inset;
+    }
+
+    /* Hovers cards como funciona */
+    .card-como-funciona:hover {
+        transform: translateY(-4px);
+        border-color: rgba(111, 255, 233, 0.4);
+        box-shadow:
+            0 8px 24px rgba(0, 0, 0, 0.5),
+            0 0 40px rgba(111, 255, 233, 0.2);
+    }
+
+    .card-como-funciona:hover img {
+        transform: scale(1.1);
+        box-shadow:
+            0 0 30px rgba(111, 255, 233, 0.5),
+            0 0 50px rgba(111, 255, 233, 0.2) inset;
+    }
+
 }
 
 /* 1440px */
@@ -1140,7 +1429,8 @@ footer ul div li a {
         height: 4rem;
     }
 
-    .nav-desktop .nav-list {
+    .nav-desktop .nav-list,
+    footer .nav-list {
         gap: 4rem;
     }
 
@@ -1188,7 +1478,7 @@ footer ul div li a {
     .hero a,
     .mas-jugado .black-button,
     .unete-comunidad>div a {
-        max-width: 16rem;
+        max-width: 20rem;
     }
 
     .primary-button,
@@ -1260,114 +1550,5 @@ footer ul div li a {
 
     .mas-jugado .flechas-carousel {
         display: none;
-    }
-
-    .primary-button:hover::before {
-        left: 100%;
-    }
-
-    .primary-button:hover {
-        background: linear-gradient(135deg,
-                rgba(91, 192, 190, 1),
-                rgba(111, 255, 233, 0.9));
-        box-shadow:
-            0 6px 20px rgba(91, 192, 190, 0.5),
-            0 0 40px rgba(111, 255, 233, 0.4);
-        transform: translateY(-2px);
-    }
-
-    .black-button:hover::before {
-        left: 100%;
-    }
-
-    .black-button:hover {
-        background: linear-gradient(145deg, rgba(28, 37, 65, 1), rgba(11, 19, 43, 1));
-        border-color: rgba(91, 192, 190, 0.6);
-        box-shadow:
-            0 6px 20px rgba(0, 0, 0, 0.6),
-            0 0 40px rgba(91, 192, 190, 0.4),
-            0 0 0 1px rgba(91, 192, 190, 0.3) inset;
-        transform: translateY(-2px);
-    }
-
-    .menu-button svg:hover {
-        color: var(--color-aqua);
-    }
-
-    .nav-list a:hover {
-        color: var(--color-light-aqua);
-    }
-
-    .close-button:hover {
-        color: var(--color-aqua);
-    }
-
-    .hero a:hover {
-        background-color: var(--color-aqua);
-        color: var(--color-blanco);
-    }
-
-    .flecha-carousel:hover {
-        background: linear-gradient(145deg, rgba(28, 37, 65, 1), rgba(11, 19, 43, 1));
-        border-color: rgba(91, 192, 190, 0.6);
-        transform: scale(1.1);
-        box-shadow:
-            0 6px 20px rgba(0, 0, 0, 0.6),
-            0 0 30px rgba(91, 192, 190, 0.4),
-            0 0 0 1px rgba(91, 192, 190, 0.3) inset;
-    }
-
-    .flecha-carousel:hover svg {
-        color: var(--color-blanco);
-        filter: drop-shadow(0 0 8px rgba(91, 192, 190, 0.8));
-    }
-
-    .badge-futurista:hover::before {
-        left: 100%;
-    }
-
-    .mas-jugado .categorias button:hover:not(.active) {
-        background: rgba(255, 255, 255, 0.1);
-        border-color: rgba(91, 192, 190, 0.4);
-        color: var(--color-blanco);
-    }
-
-    .mas-jugado .categorias button.active:hover::before {
-        left: 100%;
-    }
-
-    .card-mas-jugado:hover {
-        transform: translateY(-8px);
-        background: linear-gradient(145deg, rgba(28, 37, 65, 0.6), rgba(11, 19, 43, 0.8));
-        border-color: rgba(91, 192, 190, 0.6);
-        box-shadow:
-            0 16px 48px 0 rgba(0, 0, 0, 0.8),
-            0 0 0 1px rgba(91, 192, 190, 0.3) inset,
-            0 0 60px rgba(91, 192, 190, 0.4),
-            0 0 100px rgba(111, 255, 233, 0.2);
-    }
-
-    .card-mas-jugado:hover::before {
-        opacity: 1;
-    }
-
-    .card-mas-jugado:hover img {
-        filter: brightness(1) contrast(1.15);
-    }
-
-    .card-mas-jugado:hover .card-footer {
-        color: var(--color-blanco);
-    }
-
-    .card-mas-jugado:hover .card-footer .explorar-text::after {
-        width: 100%;
-    }
-
-    .card-mas-jugado:hover .card-footer svg {
-        transform: translateX(4px);
-    }
-
-    .card-mas-jugado:hover span::before {
-        left: 100%;
     }
 }

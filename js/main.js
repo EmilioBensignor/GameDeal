@@ -234,6 +234,138 @@ const juegosMasJugados = [
         categoria: "Plataformas",
         nombre: "Hollow Knight",
         texto: "Explora un reino subterráneo lleno de secretos y combates desafiantes."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Aventura",
+        nombre: "Horizon Forbidden West",
+        texto: "Explora un mundo post-apocalíptico lleno de máquinas y misterios antiguos."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Aventura",
+        nombre: "Red Dead Redemption 2",
+        texto: "Vive la épica historia de un forajido en el salvaje oeste americano."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Acción",
+        nombre: "Devil May Cry 5",
+        texto: "Combate demoníaco estilizado con combos espectaculares y acción frenética."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Acción",
+        nombre: "Hades",
+        texto: "Roguelike de acción donde escapas del inframundo griego una y otra vez."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "RPG",
+        nombre: "Final Fantasy XVI",
+        texto: "Épica aventura de fantasía con combate en tiempo real y historia cinematográfica."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "RPG",
+        nombre: "Starfield",
+        texto: "Explora la galaxia en esta épica aventura espacial de mundo abierto."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Deportes",
+        nombre: "EA Sports FC 24",
+        texto: "La nueva era del fútbol virtual con mecánicas mejoradas y realismo total."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Deportes",
+        nombre: "Rocket League",
+        texto: "Fútbol con autos acrobáticos en partidas competitivas y caóticas."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Simulación",
+        nombre: "Farming Simulator 22",
+        texto: "Administra tu propia granja con maquinaria auténtica y cultivos variados."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Simulación",
+        nombre: "Planet Coaster",
+        texto: "Diseña y administra el parque de atracciones de tus sueños."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Estrategia",
+        nombre: "XCOM 2",
+        texto: "Táctica por turnos liderando la resistencia contra una invasión alienígena."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Estrategia",
+        nombre: "Total War: Warhammer III",
+        texto: "Estrategia épica combinando batallas masivas en tiempo real y gestión por turnos."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Carreras",
+        nombre: "Need for Speed Unbound",
+        texto: "Carreras callejeras con estilo artístico único y personalización extrema."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Carreras",
+        nombre: "Dirt Rally 2.0",
+        texto: "Rally realista que pone a prueba tus habilidades en terrenos desafiantes."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Lucha",
+        nombre: "Super Smash Bros. Ultimate",
+        texto: "El crossover de lucha definitivo con personajes icónicos de Nintendo y más."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Lucha",
+        nombre: "Dragon Ball FighterZ",
+        texto: "Combates 2D espectaculares con personajes de Dragon Ball en estilo anime."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Puzzle",
+        nombre: "Baba Is You",
+        texto: "Rompecabezas innovador donde manipulas las reglas del juego mismo."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Puzzle",
+        nombre: "Return of the Obra Dinn",
+        texto: "Misterio de deducción único ambientado en un barco fantasma del siglo XIX."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Terror",
+        nombre: "Dead Space Remake",
+        texto: "Terror espacial con atmósfera claustrofóbica y criaturas horripilantes."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Terror",
+        nombre: "Amnesia: The Bunker",
+        texto: "Survival horror en un búnker de la Primera Guerra Mundial con amenaza constante."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Plataformas",
+        nombre: "Cuphead",
+        texto: "Plataformas y shoot 'em up con estética de caricaturas vintage."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Plataformas",
+        nombre: "Ori and the Will of the Wisps",
+        texto: "Metroidvania hermoso con mecánicas fluidas y historia emotiva."
     }
 ];
 
@@ -298,25 +430,67 @@ const opiniones = [
     },
     {
         estrellas: 5,
-        texto: "Gracias a esta plataforma encontré Elden Ring mucho más barato que en Steam. Súper fácil comparar precios.",
+        texto: "Increíble la diferencia de precios entre tiendas. Me ahorré casi $20 en mi último juego.",
         img: "Opinion-Placeholder",
-        nombre: "Juan Pérez",
-        descripcion: "Gamer, Argentina"
+        nombre: "María González",
+        descripcion: "Streamer, México"
+    },
+    {
+        estrellas: 4,
+        texto: "La interfaz es muy intuitiva y me ayudó a encontrar las mejores ofertas rápidamente.",
+        img: "Opinion-Placeholder",
+        nombre: "Carlos Rodríguez",
+        descripcion: "Developer, España"
     },
     {
         estrellas: 5,
-        texto: "Gracias a esta plataforma encontré Elden Ring mucho más barato que en Steam. Súper fácil comparar precios.",
+        texto: "Siempre reviso los precios aquí antes de comprar. Ya me ahorré más de $100 este año.",
         img: "Opinion-Placeholder",
-        nombre: "Juan Pérez",
-        descripcion: "Gamer, Argentina"
+        nombre: "Ana Martínez",
+        descripcion: "Gamer, Chile"
     },
     {
         estrellas: 5,
-        texto: "Gracias a esta plataforma encontré Elden Ring mucho más barato que en Steam. Súper fácil comparar precios.",
+        texto: "Perfecta para encontrar ofertas. La recomiendo a todos mis amigos gamers.",
         img: "Opinion-Placeholder",
-        nombre: "Juan Pérez",
-        descripcion: "Gamer, Argentina"
+        nombre: "Luis Torres",
+        descripcion: "Pro Player, Colombia"
     },
+    {
+        estrellas: 4,
+        texto: "Me encanta poder ver todas las tiendas en un solo lugar. Ahorro tiempo y dinero.",
+        img: "Opinion-Placeholder",
+        nombre: "Sofia Ramírez",
+        descripcion: "Diseñadora, Uruguay"
+    },
+    {
+        estrellas: 5,
+        texto: "Desde que uso esta plataforma puedo comprar más juegos con el mismo presupuesto.",
+        img: "Opinion-Placeholder",
+        nombre: "Diego Fernández",
+        descripcion: "Estudiante, Perú"
+    },
+    {
+        estrellas: 5,
+        texto: "La función de comparación es genial. Nunca más pago de más por un juego.",
+        img: "Opinion-Placeholder",
+        nombre: "Valentina Silva",
+        descripcion: "Content Creator, Bolivia"
+    },
+    {
+        estrellas: 4,
+        texto: "Muy útil para seguir las ofertas de mis juegos favoritos. Interfaz clara y rápida.",
+        img: "Opinion-Placeholder",
+        nombre: "Mateo López",
+        descripcion: "Gamer, Ecuador"
+    },
+    {
+        estrellas: 5,
+        texto: "Excelente servicio. Encontré juegos que no sabía que existían y a precios increíbles.",
+        img: "Opinion-Placeholder",
+        nombre: "Isabella Castro",
+        descripcion: "Streamer, Paraguay"
+    }
 ];
 
 // Menu Lateral
