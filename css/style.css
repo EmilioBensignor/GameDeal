@@ -1,14 +1,9 @@
 :root {
     --color-blanco: #FFFFFF;
     --color-negro: #030304;
-    --color-dark-blue: #0B132B;
-    --color-mid-blue: #1C2541;
-    --color-light-blue: #3A506B;
     --color-aqua: #5BC0BE;
     --color-light-aqua: #6FFFE9;
     --color-pink: #E67DE5;
-    --color-lavanda: #AF71BC;
-    --color-light-violet: #B3B2F5;
 }
 
 * {
@@ -448,7 +443,8 @@ main {
     display: none;
 }
 
-.badge-futurista {
+.badge-futurista,
+.card-mas-jugado span {
     background: linear-gradient(135deg,
             rgba(91, 192, 190, 0.9),
             rgba(111, 255, 233, 0.7));
@@ -464,7 +460,8 @@ main {
     overflow: hidden;
 }
 
-.badge-futurista::before {
+.badge-futurista::before,
+.card-mas-jugado span::before {
     content: '';
     position: absolute;
     top: 0;
@@ -630,39 +627,12 @@ main {
 
 
 .card-mas-jugado span {
-    background: linear-gradient(135deg,
-            rgba(91, 192, 190, 0.9),
-            rgba(111, 255, 233, 0.7));
     font-size: 0.875rem;
-    font-weight: bold;
     padding: 0.25rem 0.75rem;
-    border-radius: 0.25rem;
-    color: var(--color-negro);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    box-shadow:
-        0 4px 12px rgba(91, 192, 190, 0.3),
-        0 0 20px rgba(111, 255, 233, 0.2);
-    position: relative;
-    overflow: hidden;
-}
-
-.card-mas-jugado span::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg,
-            transparent,
-            rgba(255, 255, 255, 0.4),
-            transparent);
-    transition: left 0.5s ease;
 }
 
 
-.card-mas-jugado .card-content div {
+.card-mas-jugado .card-info {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -901,6 +871,7 @@ main {
 }
 
 .card-opinion>p {
+    flex: 1;
     color: rgba(255, 255, 255, 0.8);
     line-height: 1.6;
     font-style: italic;
@@ -1340,7 +1311,8 @@ footer ul div li a {
         filter: drop-shadow(0 0 8px rgba(230, 125, 229, 0.8));
     }
 
-    .badge-futurista:hover::before {
+    .badge-futurista:hover::before,
+    .card-mas-jugado:hover span::before {
         left: 100%;
     }
 
@@ -1383,10 +1355,6 @@ footer ul div li a {
 
     .card-mas-jugado:hover .card-footer svg {
         transform: translateX(4px);
-    }
-
-    .card-mas-jugado:hover span::before {
-        left: 100%;
     }
 
     /* Hovers cards de comparar */

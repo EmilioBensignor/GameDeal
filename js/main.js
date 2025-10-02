@@ -373,29 +373,29 @@ const juegosMasJugados = [
 const comparaciones = [
     {
         plataforma: "Steam",
-        precio: "49,99",
+        precio: "39,99",
         lista: [
-            "Compra oficial y segura",
-            "Soporte completo de la plataforma",
-            "Actualizaciones automáticas",
+            "Biblioteca integrada en la nube",
+            "Reembolsos hasta 14 días",
+            "Workshop con mods de la comunidad",
         ],
     },
     {
-        plataforma: "Steam",
-        precio: "49,99",
+        plataforma: "Epic Games",
+        precio: "44,99",
         lista: [
-            "Compra oficial y segura",
-            "Soporte completo de la plataforma",
-            "Actualizaciones automáticas",
+            "Juegos gratis todas las semanas",
+            "Logros y sistema de recompensas",
+            "Crossplay con otras plataformas",
         ],
     },
     {
-        plataforma: "Steam",
-        precio: "49,99",
+        plataforma: "GOG",
+        precio: "42,99",
         lista: [
-            "Compra oficial y segura",
-            "Soporte completo de la plataforma",
-            "Actualizaciones automáticas",
+            "Sin DRM - tuyo para siempre",
+            "Instaladores offline incluidos",
+            "Garantía de devolución de 30 días",
         ],
     },
 ];
@@ -405,17 +405,17 @@ const comoFunciona = [
     {
         img: "Como-funciona-Placeholder",
         titulo: "Buscar",
-        texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.",
+        texto: "Ingresá el nombre del juego que querés en nuestro buscador. Encontrá títulos de todas las plataformas en segundos.",
     },
     {
         img: "Como-funciona-Placeholder",
         titulo: "Comparar",
-        texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.",
+        texto: "Revisá precios en tiempo real de Steam, Epic Games, GOG y más tiendas. Filtrá por región y moneda para ver ofertas exactas.",
     },
     {
         img: "Como-funciona-Placeholder",
         titulo: "Ahorrar",
-        texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.",
+        texto: "Comprá al mejor precio disponible y ahorrá hasta un 70% en tus juegos favoritos. Simple, rápido y sin vueltas.",
     },
 ];
 
@@ -585,7 +585,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <img src="./img/home/${juego.img}.png" alt="${juego.nombre}">
                 <div class="card-content">
                     <span>${juego.categoria}</span>
-                    <div>
+                    <div class="card-info">
                         <h3>${juego.nombre}</h3>
                         <p>${juego.texto}</p>
                     </div>
