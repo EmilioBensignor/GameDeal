@@ -39,40 +39,202 @@ const categorias = [
 const juegosMasJugados = [
     {
         img: "Juego-Placeholder",
-        categoria: "Cooperativo",
-        nombre: "Split Fiction",
-        texto: "Vive una historia surreal compartida, donde cada jugador percibe mundos diferentes y debe colaborar."
+        categoria: "Aventura",
+        nombre: "The Last of Us Part II",
+        texto: "Una historia épica de supervivencia en un mundo post-apocalíptico lleno de emociones intensas."
     },
     {
         img: "Juego-Placeholder",
-        categoria: "Cooperativo",
-        nombre: "Split Fiction",
-        texto: "Vive una historia surreal compartida, donde cada jugador percibe mundos diferentes y debe colaborar."
+        categoria: "Acción",
+        nombre: "Call of Duty: Modern Warfare",
+        texto: "Intensos combates tácticos con gráficos realistas y modos multijugador emocionantes."
     },
     {
         img: "Juego-Placeholder",
-        categoria: "Cooperativo",
-        nombre: "Split Fiction",
-        texto: "Vive una historia surreal compartida, donde cada jugador percibe mundos diferentes y debe colaborar."
+        categoria: "RPG",
+        nombre: "Elden Ring",
+        texto: "Un vasto mundo abierto lleno de misterios, combates desafiantes y exploración épica."
     },
     {
         img: "Juego-Placeholder",
-        categoria: "Cooperativo",
-        nombre: "Split Fiction",
-        texto: "Vive una historia surreal compartida, donde cada jugador percibe mundos diferentes y debe colaborar."
+        categoria: "Deportes",
+        nombre: "FIFA 24",
+        texto: "El simulador de fútbol más realista con equipos oficiales y modos de juego variados."
     },
     {
         img: "Juego-Placeholder",
-        categoria: "Cooperativo",
-        nombre: "Split Fiction",
-        texto: "Vive una historia surreal compartida, donde cada jugador percibe mundos diferentes y debe colaborar."
+        categoria: "Simulación",
+        nombre: "Microsoft Flight Simulator",
+        texto: "Experimenta la sensación de volar con la simulación más realista del mundo."
     },
     {
         img: "Juego-Placeholder",
-        categoria: "Cooperativo",
-        nombre: "Split Fiction",
-        texto: "Vive una historia surreal compartida, donde cada jugador percibe mundos diferentes y debe colaborar."
+        categoria: "Estrategia",
+        nombre: "Civilization VI",
+        texto: "Construye un imperio que resista el paso del tiempo con estrategia por turnos."
     },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Carreras",
+        nombre: "Forza Horizon 5",
+        texto: "Carreras arcade en un mundo abierto espectacular en México con cientos de vehículos."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Lucha",
+        nombre: "Mortal Kombat 11",
+        texto: "Combates brutales con movimientos fatales icónicos y una narrativa cinematográfica."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Puzzle",
+        nombre: "Portal 2",
+        texto: "Resuelve acertijos ingeniosos usando portales en este juego de lógica y humor."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Terror",
+        nombre: "Resident Evil Village",
+        texto: "Horror de supervivencia con atmósfera tenebrosa y enemigos aterradores."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Plataformas",
+        nombre: "Celeste",
+        texto: "Plataformas desafiante con una historia conmovedora sobre superación personal."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Aventura",
+        nombre: "God of War Ragnarök",
+        texto: "Kratos y Atreus enfrentan el destino en esta épica aventura de mitología nórdica."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Acción",
+        nombre: "Spider-Man 2",
+        texto: "Balancea por Nueva York como Peter Parker y Miles Morales en esta secuela espectacular."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "RPG",
+        nombre: "Baldur's Gate 3",
+        texto: "RPG de mundo abierto con decisiones profundas y combate táctico basado en D&D."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Deportes",
+        nombre: "NBA 2K24",
+        texto: "Vive la experiencia del baloncesto profesional con gráficos y jugabilidad realistas."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Aventura",
+        nombre: "Uncharted 4",
+        texto: "Acompaña a Nathan Drake en su última aventura llena de tesoros y peligros."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Acción",
+        nombre: "DOOM Eternal",
+        texto: "Acción frenética contra hordas de demonios con un arsenal devastador."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "RPG",
+        nombre: "The Witcher 3",
+        texto: "Explora un mundo de fantasía oscura como Geralt de Rivia en esta aventura épica."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Deportes",
+        nombre: "F1 2024",
+        texto: "Compite en el campeonato de Fórmula 1 con las escuderías y pilotos oficiales."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Simulación",
+        nombre: "The Sims 4",
+        texto: "Crea y controla personas virtuales en un simulador de vida sin límites."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Simulación",
+        nombre: "Cities: Skylines",
+        texto: "Construye y gestiona la ciudad de tus sueños en este simulador urbano."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Estrategia",
+        nombre: "StarCraft II",
+        texto: "Domina la galaxia con estrategia en tiempo real en este clásico de eSports."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Estrategia",
+        nombre: "Age of Empires IV",
+        texto: "Construye imperios y conquista civilizaciones en este RTS legendario."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Carreras",
+        nombre: "Gran Turismo 7",
+        texto: "El simulador de conducción más realista con cientos de vehículos auténticos."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Carreras",
+        nombre: "Mario Kart 8 Deluxe",
+        texto: "Carreras arcade divertidas con personajes icónicos de Nintendo."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Lucha",
+        nombre: "Street Fighter 6",
+        texto: "Combates competitivos con mecánicas renovadas y roster diverso."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Lucha",
+        nombre: "Tekken 8",
+        texto: "El rey de los juegos de lucha 3D regresa con gráficos impresionantes."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Puzzle",
+        nombre: "Tetris Effect",
+        texto: "Tetris como nunca antes con música y efectos visuales hipnóticos."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Puzzle",
+        nombre: "The Witness",
+        texto: "Explora una isla misteriosa resolviendo cientos de rompecabezas interconectados."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Terror",
+        nombre: "Silent Hill 2 Remake",
+        texto: "Revive la pesadilla psicológica más icónica del survival horror."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Terror",
+        nombre: "Outlast",
+        texto: "Sobrevive en un asilo abandonado sin armas, solo tu cámara y tu ingenio."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Plataformas",
+        nombre: "Super Mario Odyssey",
+        texto: "Viaja por reinos coloridos en la mejor aventura 3D de Mario."
+    },
+    {
+        img: "Juego-Placeholder",
+        categoria: "Plataformas",
+        nombre: "Hollow Knight",
+        texto: "Explora un reino subterráneo lleno de secretos y combates desafiantes."
+    }
 ];
 
 // Comparar
@@ -212,9 +374,13 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
     const contenedorCategorias = document.getElementById('contenedor-categorias');
 
+    const botonVerTodo = contenedorCategorias.querySelector('button');
+    botonVerTodo.classList.add('active');
+
     categorias.forEach(categoria => {
         const button = document.createElement('button');
         button.textContent = categoria.nombre;
+        button.dataset.categoria = categoria.nombre;
         contenedorCategorias.appendChild(button);
     });
 });
@@ -224,36 +390,53 @@ document.addEventListener('DOMContentLoaded', function () {
     const contenedorMasJugados = document.getElementById('contenedor-mas-jugados');
     const botonAnterior = document.getElementById('anterior-eventos');
     const botonSiguiente = document.getElementById('siguiente-eventos');
+    const contenedorCategorias = document.getElementById('contenedor-categorias');
 
     if (!contenedorMasJugados || !botonAnterior || !botonSiguiente) return;
+
+    let juegosFiltrados = [...juegosMasJugados];
+    let indiceActual = 0;
 
     function generarTarjetas() {
         contenedorMasJugados.innerHTML = '';
 
-        juegosMasJugados.forEach(juego => {
-            const tarjeta = document.createElement('div');
+        const esDesktop = window.innerWidth >= 1440;
+        const juegosAMostrar = esDesktop ? juegosFiltrados.slice(0, 6) : juegosFiltrados;
+
+        juegosAMostrar.forEach(juego => {
+            const tarjeta = document.createElement('a');
             tarjeta.className = 'card-mas-jugado';
+            tarjeta.href = '#';
             tarjeta.innerHTML = `
                 <img src="./img/home/${juego.img}.png" alt="${juego.nombre}">
-                <div>
+                <div class="card-content">
                     <span>${juego.categoria}</span>
                     <div>
                         <h3>${juego.nombre}</h3>
                         <p>${juego.texto}</p>
                     </div>
+                    <div class="card-footer">
+                        <p class="explorar-text">Explorar</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                            <path fill="null" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 6l6 6l-6 6" />
+                        </svg>
+                    </div>
                 </div>
-                <a href="#">Explorar
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 6l6 6l-6 6" />
-                    </svg>
-                </a>
             `;
             contenedorMasJugados.appendChild(tarjeta);
         });
     }
 
-    let indiceActual = 0;
-    const totalJuegos = juegosMasJugados.length;
+    function filtrarJuegos(categoria) {
+        if (categoria === null) {
+            juegosFiltrados = [...juegosMasJugados];
+        } else {
+            juegosFiltrados = juegosMasJugados.filter(juego => juego.categoria === categoria);
+        }
+        indiceActual = 0;
+        generarTarjetas();
+        actualizarCarousel();
+    }
 
     function obtenerJuegosPorVista() {
         if (window.innerWidth >= 1080) return 3;
@@ -263,13 +446,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function obtenerIndiceMaximo() {
         const juegosPorVista = obtenerJuegosPorVista();
-        return Math.max(0, totalJuegos - juegosPorVista);
+        return Math.max(0, juegosFiltrados.length - juegosPorVista);
     }
 
     function actualizarCarousel() {
-        const juegosPorVista = obtenerJuegosPorVista();
-        const anchoSlide = 100 / juegosPorVista;
-        contenedorMasJugados.style.transform = `translateX(-${indiceActual * anchoSlide}%)`;
+        const primeraCard = contenedorMasJugados.querySelector('.card-mas-jugado');
+        if (!primeraCard) return;
+
+        const cardWidth = primeraCard.offsetWidth;
+
+        const estilosContenedor = window.getComputedStyle(contenedorMasJugados);
+        const gap = parseFloat(estilosContenedor.gap) || 16;
+
+        const desplazamiento = indiceActual * (cardWidth + gap);
+
+        contenedorMasJugados.style.transform = `translateX(-${desplazamiento}px)`;
     }
 
     function irSiguiente() {
@@ -285,12 +476,27 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function manejarRedimension() {
+        generarTarjetas();
+
         const indiceMaximo = obtenerIndiceMaximo();
         if (indiceActual > indiceMaximo) {
             indiceActual = indiceMaximo;
         }
         actualizarCarousel();
     }
+
+    contenedorCategorias.addEventListener('click', function (e) {
+        if (e.target.tagName === 'BUTTON') {
+            contenedorCategorias.querySelectorAll('button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            e.target.classList.add('active');
+
+            const categoria = e.target.dataset.categoria || null;
+            filtrarJuegos(categoria);
+        }
+    });
 
     generarTarjetas();
 
