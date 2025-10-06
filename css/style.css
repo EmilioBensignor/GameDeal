@@ -788,8 +788,8 @@ main {
 }
 
 .card-como-funciona img {
-    width: 3rem;
-    height: 3rem;
+    width: 4rem;
+    height: 4rem;
     padding: 1rem;
     border-radius: 50%;
     background: linear-gradient(135deg,
@@ -1386,7 +1386,6 @@ footer ul div li a {
         transform: translateX(4px);
     }
 
-    /* Hovers cards de comparar */
     .donde-comprar .card-comparar:hover {
         transform: translateY(-8px);
         border-color: rgba(91, 192, 190, 0.6);
@@ -1397,7 +1396,6 @@ footer ul div li a {
             0 0 0 1px rgba(91, 192, 190, 0.2) inset;
     }
 
-    /* Hovers cards como funciona */
     .card-como-funciona:hover {
         transform: translateY(-4px);
         border-color: rgba(111, 255, 233, 0.4);
@@ -1505,8 +1503,8 @@ footer ul div li a {
     }
 
     .card-como-funciona img {
-        width: 4rem;
-        height: 4rem;
+        width: 4.5rem;
+        height: 4.5rem;
     }
 
     .card-comparar>div p {
