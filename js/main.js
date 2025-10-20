@@ -1155,8 +1155,8 @@ document.addEventListener('DOMContentLoaded', function () {
     modalBusqueda.innerHTML = `
         <div class="search-modal-content">
             <div class="search-modal-header">
-                <input type="text" id="search-modal-input" placeholder="Buscar juegos...">
                 <button class="search-modal-close">&times;</button>
+                <input type="text" id="search-modal-input" placeholder="Buscar juegos...">
             </div>
             <div class="search-modal-results"></div>
         </div>
@@ -1364,18 +1364,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const campos = formComunidad.querySelectorAll('input, textarea');
     campos.forEach(campo => {
-        campo.addEventListener('blur', function() {
+        campo.addEventListener('blur', function () {
             validarCampo(this);
         });
 
-        campo.addEventListener('input', function() {
+        campo.addEventListener('input', function () {
             if (this.classList.contains('error')) {
                 validarCampo(this);
             }
         });
     });
 
-    formComunidad.addEventListener('submit', function(e) {
+    formComunidad.addEventListener('submit', function (e) {
         e.preventDefault();
 
         const nombre = document.getElementById('nombre');
@@ -1409,19 +1409,19 @@ document.addEventListener('DOMContentLoaded', function () {
     cerrarModalExito.addEventListener('click', cerrarModalSucces);
     btnCerrarExito.addEventListener('click', cerrarModalSucces);
 
-    modalComunidad.addEventListener('click', function(e) {
+    modalComunidad.addEventListener('click', function (e) {
         if (e.target === modalComunidad) {
             cerrarModalFormulario();
         }
     });
 
-    modalExito.addEventListener('click', function(e) {
+    modalExito.addEventListener('click', function (e) {
         if (e.target === modalExito) {
             cerrarModalSucces();
         }
     });
 
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
             if (modalComunidad.classList.contains('active')) {
                 cerrarModalFormulario();
