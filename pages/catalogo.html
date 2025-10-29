@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GameDeal</title>
+    <title>GameDeal - Catálogo</title>
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -63,12 +63,68 @@
         </div>
     </div>
     <main>
-        <section class="hero">
-            <video src="../video/Hero.mp4" autoplay muted loop></video>
+        <section class="hero-catalogo">
             <div>
-                <h1>Catálogo</h1>
+                <div class="hero-catalogo-content">
+                    <h1>Todos los juegos en un solo lugar</h1>
+                    <p>Explora miles de títulos, filtra por género o precio y encuentra la mejor oferta en segundos.</p>
+                </div>
+                <div class="hero-catalogo-grid-wrapper" id="catalogo-carousel"></div>
             </div>
         </section>
+        <div class="parallax-content">
+            <section class="catalogo-filtros">
+                <div>
+                    <div class="filtros-content">
+                        <h2>Encuentra el juego que estás buscando</h2>
+                        <p class="subtitulo">Explora nuestro catálogo, filtrá por género o precio y encuentra en segundos.</p>
+                    </div>
+
+                    <div class="filtros-buscador">
+                        <input type="text" id="filtro-buscar-juego" placeholder="Busca un juego">
+                    </div>
+
+                    <div class="filtros-grid">
+                        <div class="filtro-grupo">
+                            <button class="filtro-toggle" data-target="filtro-categorias">Categorías</button>
+                            <div id="filtro-categorias" class="filtro-items"></div>
+                        </div>
+
+                        <div class="filtro-grupo">
+                            <button class="filtro-toggle" data-target="filtro-precio">Precio</button>
+                            <div id="filtro-precio" class="filtro-items">
+                                <label><input type="checkbox" value="gratis"> Gratis</label>
+                                <label><input type="checkbox" value="0-20"> Menos de $20</label>
+                                <label><input type="checkbox" value="20-40"> $20 a $40</label>
+                                <label><input type="checkbox" value="40-60"> $40 a $60</label>
+                                <label><input type="checkbox" value="60+"> Más de $60</label>
+                            </div>
+                        </div>
+
+                        <div class="filtro-grupo">
+                            <button class="filtro-toggle" data-target="filtro-otros">Explorar</button>
+                            <div id="filtro-otros" class="filtro-items">
+                                <label><input type="checkbox" value="masJugado"> Más jugado</label>
+                                <label><input type="checkbox" value="freeToPlay"> Free to Play</label>
+                                <label><input type="checkbox" value="masVendido"> Más vendido</label>
+                                <label><input type="checkbox" value="proximamente"> Próximamente</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="contenedor-juegos" class="juegos-grid"></div>
+
+                    <button id="btn-cargar-mas" class="black-button">Cargar más juegos</button>
+                </div>
+            </section>
+            <section class="catalogo-descuentos">
+                <div>
+                    <h2>Descuentos en RPG hasta -50%</h2>
+                    <p>Explora mundos épicos y vive nuevas historias con las mejores rebajas de la semana.</p>
+                    <a href="#" class="black-button">Todas las ofertas</a>
+                </div>
+            </section>
+        </div>
     </main>
     <footer>
         <div>

@@ -733,15 +733,18 @@ const comparaciones = [
 // Como funciona
 const comoFunciona = [
     {
-        titulo: "Buscar",
+        titulo: "Buscá",
+        img: "buscar",
         texto: "Ingresá el nombre del juego que querés en nuestro buscador. Encontrá títulos de todas las plataformas en segundos.",
     },
     {
-        titulo: "Comparar",
+        titulo: "Compará",
+        img: "comparar",
         texto: "Revisá precios en tiempo real de Steam, Epic Games, GOG y más tiendas. Filtrá por región y moneda para ver ofertas exactas.",
     },
     {
-        titulo: "Ahorrar",
+        titulo: "Ahorrá",
+        img: "ahorrar",
         texto: "Comprá al mejor precio disponible y ahorrá hasta un 70% en tus juegos favoritos. Simple, rápido y sin vueltas.",
     },
 ];
@@ -874,6 +877,8 @@ document.addEventListener('DOMContentLoaded', function () {
 // Categorias mas jugadas
 document.addEventListener('DOMContentLoaded', function () {
     const contenedorCategorias = document.getElementById('contenedor-categorias');
+
+    if (!contenedorCategorias) return;
 
     const botonVerTodo = contenedorCategorias.querySelector('button');
     botonVerTodo.classList.add('active');
@@ -1029,7 +1034,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <ul>
                     ${comparacion.lista.map(item => `<li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 12l5 5L20 7"/></svg>${item}</li>`).join('')}
                 </ul>
-                <a href="#" class="black-button">Comprar</a>
+                <a href="#" class="black-button">Comparar</a>
             `;
             contenedorComparar.appendChild(tarjeta);
         });
@@ -1051,7 +1056,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const tarjeta = document.createElement('div');
             tarjeta.className = 'card-como-funciona';
             tarjeta.innerHTML = `
-                <img src="./img/home/${paso.titulo}.svg" alt="${paso.titulo}">
+                <img src="./img/home/${paso.img}.svg" alt="${paso.titulo}">
                 <h3>${paso.titulo}</h3>
                 <p>${paso.texto}</p>
             `;
@@ -1213,7 +1218,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24">
                         <path fill="currentColor" d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 0 0 1.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 0 0-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 0 0 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0c.41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5S14 7.01 14 9.5S11.99 14 9.5 14z"/>
                     </svg>
-                    <p>Comienza a escribir para buscar juegos</p>
+                    <p>Empezá a escribir para buscar juegos</p>
                 </div>
             `;
             return;
@@ -1431,4 +1436,302 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     });
+});
+
+// Carousel Catálogo
+document.addEventListener('DOMContentLoaded', function () {
+    const carouselContainer = document.getElementById('catalogo-carousel');
+
+    if (!carouselContainer) return;
+
+    const juegosIzquierda = ['elden-ring', 'call-of-duty-modern-warfare', 'fifa-26', 'uncharted-4', 'god-of-war-ragnarok', 'baldurs-gate-3', 'microsoft-flight-simulator', 'civilization-vi', 'starcraft-ii', 'age-of-empires-iv'];
+    const juegosDerecha = ['gran-turismo-7', 'street-fighter-6', 'tetris-effect', 'portal-2', 'dead-space-remake', 'silent-hill-2-remake', 'hollow-knight', 'celeste', 'super-smash-bros-ultimate', 'mario-kart-8-deluxe'];
+
+    function generarCarousel(juegosLeft, juegoRight) {
+        const esTablet = window.innerWidth >= 768;
+
+        if (esTablet) {
+            // En tablet: 3 columnas
+            const col1 = juegosLeft.slice(0, 5);
+            const col2 = juegoRight.slice(0, 5);
+            const col3 = [...juegosLeft.slice(5), ...juegoRight.slice(5)].slice(0, 5);
+
+            let html1 = '';
+            let html2 = '';
+            let html3 = '';
+
+            col1.forEach(juegoId => {
+                const juego = juegos.find(j => j.img === juegoId);
+                if (juego) {
+                    html1 += `
+                        <div class="grid-item">
+                            <img src="../img/juegos/${juego.img}.webp" alt="${juego.nombre}">
+                        </div>
+                    `;
+                }
+            });
+
+            col2.forEach(juegoId => {
+                const juego = juegos.find(j => j.img === juegoId);
+                if (juego) {
+                    html2 += `
+                        <div class="grid-item">
+                            <img src="../img/juegos/${juego.img}.webp" alt="${juego.nombre}">
+                        </div>
+                    `;
+                }
+            });
+
+            col3.forEach(juegoId => {
+                const juego = juegos.find(j => j.img === juegoId);
+                if (juego) {
+                    html3 += `
+                        <div class="grid-item">
+                            <img src="../img/juegos/${juego.img}.webp" alt="${juego.nombre}">
+                        </div>
+                    `;
+                }
+            });
+
+            carouselContainer.innerHTML = `
+                <div class="hero-catalogo-grid">
+                    <div class="grid-column">
+                        ${html1}
+                    </div>
+                    <div class="grid-column">
+                        ${html2}
+                    </div>
+                    <div class="grid-column">
+                        ${html3}
+                    </div>
+                </div>
+            `;
+        } else {
+            // En mobile: 2 columnas
+            let htmlIzquierda = '';
+            let htmlDerecha = '';
+
+            const juegosPorColumna = [...juegosLeft, ...juegosLeft];
+            juegosPorColumna.forEach(juegoId => {
+                const juego = juegos.find(j => j.img === juegoId);
+                if (juego) {
+                    htmlIzquierda += `
+                        <div class="grid-item">
+                            <img src="../img/juegos/${juego.img}.webp" alt="${juego.nombre}">
+                        </div>
+                    `;
+                }
+            });
+
+            const juegosPorColumnaDerecha = [...juegoRight, ...juegoRight];
+            juegosPorColumnaDerecha.forEach(juegoId => {
+                const juego = juegos.find(j => j.img === juegoId);
+                if (juego) {
+                    htmlDerecha += `
+                        <div class="grid-item">
+                            <img src="../img/juegos/${juego.img}.webp" alt="${juego.nombre}">
+                        </div>
+                    `;
+                }
+            });
+
+            carouselContainer.innerHTML = `
+                <div class="hero-catalogo-grid">
+                    <div class="grid-column grid-column-left">
+                        ${htmlIzquierda}
+                    </div>
+                    <div class="grid-column grid-column-right">
+                        ${htmlDerecha}
+                    </div>
+                </div>
+            `;
+        }
+    }
+
+    generarCarousel(juegosIzquierda, juegosDerecha);
+});
+
+// Filtros Catálogo
+document.addEventListener('DOMContentLoaded', function () {
+    const botonesFiltro = document.querySelectorAll('.filtro-toggle');
+
+    botonesFiltro.forEach(boton => {
+        boton.addEventListener('click', function () {
+            const targetId = this.getAttribute('data-target');
+            const targetElement = document.getElementById(targetId);
+
+            if (!targetElement) return;
+
+            targetElement.classList.toggle('active');
+            this.classList.toggle('active');
+        });
+    });
+});
+
+// Categorias Catálogo
+document.addEventListener('DOMContentLoaded', function () {
+    const contenedorCategorias = document.getElementById('filtro-categorias');
+
+    if (!contenedorCategorias) return;
+
+    categorias.forEach(categoria => {
+        const label = document.createElement('label');
+        const input = document.createElement('input');
+        input.type = 'checkbox';
+        input.value = categoria.nombre;
+
+        label.appendChild(input);
+        label.appendChild(document.createTextNode(categoria.nombre));
+        contenedorCategorias.appendChild(label);
+    });
+});
+
+// Catálogo Juegos
+document.addEventListener('DOMContentLoaded', function () {
+    const contenedorJuegos = document.getElementById('contenedor-juegos');
+    const btnCargarMas = document.getElementById('btn-cargar-mas');
+    const inputBusqueda = document.getElementById('filtro-buscar-juego');
+    const filtroCategoriasContainer = document.getElementById('filtro-categorias');
+
+    if (!contenedorJuegos || !btnCargarMas) return;
+
+    let juegosMostrados = 0;
+    let juegosFiltrados = [];
+    let juegosInicial = [];
+
+    function obtenerJuegosInicial() {
+        return window.innerWidth >= 1080 ? 15 : 10;
+    }
+
+    function obtenerJuegosPorCarga() {
+        return 6;
+    }
+
+    function obtenerJuegosAleatorios(cantidad) {
+        const copia = [...juegos].sort(() => Math.random() - 0.5);
+        return copia.slice(0, cantidad);
+    }
+
+    function filtrarJuegos() {
+        let resultado = [...juegos];
+
+        const termino = inputBusqueda.value.toLowerCase();
+        if (termino) {
+            resultado = resultado.filter(j =>
+                j.nombre.toLowerCase().includes(termino) ||
+                j.nombreBusqueda.includes(termino)
+            );
+        }
+
+        const checkboxCategorias = Array.from(filtroCategoriasContainer.querySelectorAll('input[type="checkbox"]'));
+        const categoriasSeleccionadas = checkboxCategorias
+            .filter(cb => cb.checked)
+            .map(cb => cb.value);
+        if (categoriasSeleccionadas.length > 0) {
+            resultado = resultado.filter(j => categoriasSeleccionadas.includes(j.categoria));
+        }
+
+        const checkboxPrecios = Array.from(document.querySelectorAll('#filtro-precio input[type="checkbox"]'));
+        const preciosSeleccionados = checkboxPrecios.filter(cb => cb.checked).map(cb => cb.value);
+        if (preciosSeleccionados.length > 0) {
+            resultado = resultado.filter(j => {
+                if (preciosSeleccionados.includes('gratis') && j.freeToPlay) return true;
+                if (preciosSeleccionados.includes('0-20') && j.precio > 0 && j.precio < 20) return true;
+                if (preciosSeleccionados.includes('20-40') && j.precio >= 20 && j.precio < 40) return true;
+                if (preciosSeleccionados.includes('40-60') && j.precio >= 40 && j.precio < 60) return true;
+                if (preciosSeleccionados.includes('60+') && j.precio >= 60) return true;
+                return false;
+            });
+        }
+
+        const checkboxOtros = Array.from(document.querySelectorAll('#filtro-otros input[type="checkbox"]'));
+        const otrosSeleccionados = checkboxOtros.filter(cb => cb.checked).map(cb => cb.value);
+        if (otrosSeleccionados.length > 0) {
+            resultado = resultado.filter(j => {
+                if (otrosSeleccionados.includes('masJugado') && j.masJugado) return true;
+                if (otrosSeleccionados.includes('freeToPlay') && j.freeToPlay) return true;
+                if (otrosSeleccionados.includes('masVendido') && j.masVendido) return true;
+                if (otrosSeleccionados.includes('proximamente') && j.proximamente) return true;
+                return otrosSeleccionados.length === 0;
+            });
+        }
+
+        if (!termino && categoriasSeleccionadas.length === 0 && preciosSeleccionados.length === 0 && otrosSeleccionados.length === 0) {
+            juegosFiltrados = [...juegosInicial];
+        } else {
+            juegosFiltrados = resultado;
+        }
+
+        juegosMostrados = 0;
+        renderizarJuegos();
+    }
+
+    function renderizarJuegos() {
+        const juegosAMostrar = juegosFiltrados.slice(juegosMostrados, juegosMostrados + obtenerJuegosPorCarga());
+
+        if (juegosMostrados === 0) {
+            contenedorJuegos.innerHTML = '';
+        }
+
+        if (juegosAMostrar.length === 0 && juegosMostrados === 0) {
+            contenedorJuegos.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: rgba(255,255,255,0.5);">No se encontraron juegos</p>';
+            btnCargarMas.style.display = 'none';
+            return;
+        }
+
+        juegosAMostrar.forEach(juego => {
+            const card = document.createElement('div');
+            card.className = 'juego-card';
+
+            let badgesHTML = '';
+            if (juego.freeToPlay) {
+                badgesHTML += '<span class="badge free">FREE TO PLAY</span>';
+            } else {
+                badgesHTML += `<span class="badge price">$${juego.precio} USD</span>`;
+            }
+            if (juego.masJugado) {
+                badgesHTML += '<span class="badge featured">MÁS JUGADO</span>';
+            }
+            if (juego.masVendido) {
+                badgesHTML += '<span class="badge bestseller">MÁS VENDIDO</span>';
+            }
+            if (juego.proximamente) {
+                badgesHTML += '<span class="badge coming-soon">PRÓXIMAMENTE</span>';
+            }
+
+            card.innerHTML = `
+                <img src="../img/juegos/${juego.img}.webp" alt="${juego.nombre}">
+                <div class="juego-card-info">
+                    <div>
+                        <h3>${juego.nombre}</h3>
+                        <p class="juego-card-categoria">${juego.categoria}</p>
+                    </div>
+                    <div class="juego-card-meta">
+                        ${badgesHTML}
+                    </div>
+                </div>
+            `;
+            contenedorJuegos.appendChild(card);
+        });
+
+        juegosMostrados += obtenerJuegosPorCarga();
+
+        if (juegosMostrados >= juegosFiltrados.length) {
+            btnCargarMas.style.display = 'none';
+        } else {
+            btnCargarMas.style.display = 'block';
+        }
+    }
+
+    inputBusqueda.addEventListener('input', filtrarJuegos);
+
+    filtroCategoriasContainer.addEventListener('change', filtrarJuegos);
+    document.getElementById('filtro-precio').addEventListener('change', filtrarJuegos);
+    document.getElementById('filtro-otros').addEventListener('change', filtrarJuegos);
+
+    btnCargarMas.addEventListener('click', renderizarJuegos);
+
+    juegosInicial = obtenerJuegosAleatorios(obtenerJuegosInicial());
+    juegosFiltrados = [...juegosInicial];
+    renderizarJuegos();
 });
