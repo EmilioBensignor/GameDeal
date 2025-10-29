@@ -67,7 +67,8 @@
             <div>
                 <div class="hero-catalogo-content">
                     <h1>Todos los juegos en un solo lugar</h1>
-                    <p>Explora miles de títulos, filtra por género o precio y encuentra la mejor oferta en segundos.</p>
+                    <p class="subtitulo">Explora miles de títulos, filtra por género o precio y encuentra la mejor
+                        oferta en segundos.</p>
                 </div>
                 <div class="hero-catalogo-grid-wrapper" id="catalogo-carousel"></div>
             </div>
@@ -77,37 +78,40 @@
                 <div>
                     <div class="filtros-content">
                         <h2>Encuentra el juego que estás buscando</h2>
-                        <p class="subtitulo">Explora nuestro catálogo, filtrá por género o precio y encuentra en segundos.</p>
+                        <p class="subtitulo">Explora nuestro catálogo, filtrá por género o precio y encuentra en
+                            segundos.</p>
                     </div>
 
-                    <div class="filtros-buscador">
-                        <input type="text" id="filtro-buscar-juego" placeholder="Busca un juego">
-                    </div>
-
-                    <div class="filtros-grid">
-                        <div class="filtro-grupo">
-                            <button class="filtro-toggle" data-target="filtro-categorias">Categorías</button>
-                            <div id="filtro-categorias" class="filtro-items"></div>
+                    <div class="buscador-select">
+                        <div class="filtros-buscador">
+                            <input type="text" id="filtro-buscar-juego" placeholder="Busca un juego">
                         </div>
 
-                        <div class="filtro-grupo">
-                            <button class="filtro-toggle" data-target="filtro-precio">Precio</button>
-                            <div id="filtro-precio" class="filtro-items">
-                                <label><input type="checkbox" value="gratis"> Gratis</label>
-                                <label><input type="checkbox" value="0-20"> Menos de $20</label>
-                                <label><input type="checkbox" value="20-40"> $20 a $40</label>
-                                <label><input type="checkbox" value="40-60"> $40 a $60</label>
-                                <label><input type="checkbox" value="60+"> Más de $60</label>
+                        <div class="filtros-grid">
+                            <div class="filtro-grupo">
+                                <button class="filtro-toggle" data-target="filtro-categorias">Categorías</button>
+                                <div id="filtro-categorias" class="filtro-items"></div>
                             </div>
-                        </div>
 
-                        <div class="filtro-grupo">
-                            <button class="filtro-toggle" data-target="filtro-otros">Explorar</button>
-                            <div id="filtro-otros" class="filtro-items">
-                                <label><input type="checkbox" value="masJugado"> Más jugado</label>
-                                <label><input type="checkbox" value="freeToPlay"> Free to Play</label>
-                                <label><input type="checkbox" value="masVendido"> Más vendido</label>
-                                <label><input type="checkbox" value="proximamente"> Próximamente</label>
+                            <div class="filtro-grupo">
+                                <button class="filtro-toggle" data-target="filtro-precio">Precio</button>
+                                <div id="filtro-precio" class="filtro-items">
+                                    <label><input type="checkbox" value="gratis"> Gratis</label>
+                                    <label><input type="checkbox" value="0-20"> Menos de $20</label>
+                                    <label><input type="checkbox" value="20-40"> $20 a $40</label>
+                                    <label><input type="checkbox" value="40-60"> $40 a $60</label>
+                                    <label><input type="checkbox" value="60+"> Más de $60</label>
+                                </div>
+                            </div>
+
+                            <div class="filtro-grupo">
+                                <button class="filtro-toggle" data-target="filtro-otros">Explorar</button>
+                                <div id="filtro-otros" class="filtro-items">
+                                    <label><input type="checkbox" value="masJugado"> Más jugado</label>
+                                    <label><input type="checkbox" value="freeToPlay"> Free to Play</label>
+                                    <label><input type="checkbox" value="masVendido"> Más vendido</label>
+                                    <label><input type="checkbox" value="proximamente"> Próximamente</label>
+                                </div>
                             </div>
                         </div>
                     </div>

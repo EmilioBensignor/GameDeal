@@ -100,6 +100,7 @@ h3 {
     box-shadow:
         0 4px 16px rgba(0, 0, 0, 0.4),
         0 0 30px rgba(91, 192, 190, 0.2);
+        cursor: pointer;
 }
 
 .black-button::before {
@@ -1093,8 +1094,9 @@ main {
 }
 
 
-.mas-jugado .black-button {
+.black-button {
     max-width: 18rem;
+    font-size: 1rem;
 }
 
 /* Donde comprar */
@@ -1122,6 +1124,7 @@ main {
     max-width: 25rem;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 2rem;
     border: 1px solid rgba(91, 192, 190, 0.3);
     border-radius: 1rem;
@@ -1435,7 +1438,6 @@ footer ul div li a {
     gap: 2rem;
     text-align: start;
     position: relative;
-    background-color: rgba(0, 0, 0, 0.5);
     color: var(--color-blanco);
     padding: 2rem 1.25rem;
     margin: 0 auto;
@@ -1456,7 +1458,7 @@ footer ul div li a {
 .hero-catalogo-grid {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 0.75rem;
     height: fit-content;
 }
@@ -1468,26 +1470,14 @@ footer ul div li a {
     animation: scroll-vertical 30s linear infinite;
 }
 
-@media (width >= 768px) {
-    .hero-catalogo-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .grid-column {
-        animation: none;
-    }
-
-    .grid-column-left,
-    .grid-column-right {
-        animation: none;
-    }
-}
-
-.grid-column-left {
+.grid-column-left,
+.grid-column-1,
+.grid-column-3 {
     animation-direction: normal;
 }
 
-.grid-column-right {
+.grid-column-right,
+.grid-column-2 {
     animation-direction: reverse;
 }
 
@@ -1575,7 +1565,7 @@ footer ul div li a {
 .filtros-grid {
     width: 100%;
     display: grid;
-    grid-template-columns: 1;
+    grid-template-columns: 1fr;
     gap: 1.5rem;
 }
 
@@ -1583,6 +1573,7 @@ footer ul div li a {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
+    position: relative;
 }
 
 .filtro-toggle {
@@ -1625,10 +1616,16 @@ footer ul div li a {
     flex-direction: column;
     gap: 0.75rem;
     padding: 1rem;
-    background: linear-gradient(145deg, rgba(28, 37, 65, 0.3), rgba(11, 19, 43, 0.5));
-    border: 1px solid rgba(91, 192, 190, 0.2);
+    background: linear-gradient(145deg, rgb(28, 37, 65), rgb(11, 19, 43));
+    border: 1px solid rgba(91, 192, 190, 0.3);
     border-radius: 0.5rem;
     animation: slideDown 0.3s ease;
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    right: 0;
+    z-index: 10;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
 .filtro-items.active {
@@ -1657,6 +1654,13 @@ footer ul div li a {
 }
 
 /* Grid de juegos */
+.buscador-select {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
 .juegos-grid {
     width: 100%;
     display: flex;
@@ -1693,7 +1697,6 @@ footer ul div li a {
 .juego-card-info {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     gap: 0.75rem;
 }
 
@@ -1770,6 +1773,7 @@ footer ul div li a {
 }
 
 .catalogo-descuentos div {
+    max-width: 100%;
     gap: 1rem;
     background-color: rgba(0, 0, 0, 0.8);
     padding: 3rem 1.25rem;
@@ -1787,6 +1791,14 @@ footer ul div li a {
 
     .unete-comunidad img {
         height: 17rem;
+    }
+
+    .hero-catalogo-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid-column {
+        animation-duration: 45s;
     }
 }
 
@@ -1824,6 +1836,10 @@ footer ul div li a {
 
     h2 {
         font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
     }
 
     .hero {
@@ -1941,6 +1957,34 @@ footer ul div li a {
 
     footer .nav-list {
         flex-direction: row;
+    }
+
+    .juego-card img {
+        width: auto;
+        height: 6.5rem;
+    }
+
+    .juego-card-info>div:first-child {
+        gap: 0.5rem;
+    }
+
+    .juego-card-categoria {
+        font-size: 1rem;
+    }
+
+    .juego-card-meta {
+        gap: 0.75rem;
+    }
+
+    .juego-card-meta .badge.price,
+    .juego-card-meta .badge.featured,
+    .juego-card-meta .badge.bestseller,
+    .juego-card-meta .badge.coming-soon {
+        font-size: 0.875rem;
+    }
+
+    .catalogo-descuentos>div p {
+        max-width: 25rem;
     }
 }
 
@@ -2281,6 +2325,66 @@ footer ul div li a {
             0 0 50px rgba(111, 255, 233, 0.2) inset;
     }
 
+    .hero-catalogo {
+        margin-top: -124px;
+    }
+
+    .hero-catalogo>div {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem 4rem;
+    }
+
+    .hero-catalogo-content,
+    .hero-catalogo-grid-wrapper {
+        width: 50%;
+    }
+
+    .hero-catalogo-content {
+        gap: 2rem;
+    }
+
+    .hero-catalogo-grid-wrapper {
+        height: 50rem;
+    }
+
+    .grid-column {
+        animation-duration: 50s;
+    }
+
+    .buscador-select {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .juegos-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .juego-card {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-items: stretch;
+    }
+
+    .juego-card img {
+        width: 12rem;
+        height: 100%;
+        flex-shrink: 0;
+    }
+
+    .filtros-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+
+    .juego-card {
+        align-items: stretch;
+    }
 }
 
 /* 1440px */
@@ -2415,5 +2519,9 @@ footer ul div li a {
 
     .mas-jugado .flechas-carousel {
         display: none;
+    }
+
+    .hero-catalogo>div {
+        gap: 4rem;
     }
 }

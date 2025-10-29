@@ -1448,19 +1448,16 @@ document.addEventListener('DOMContentLoaded', function () {
     const juegosDerecha = ['gran-turismo-7', 'street-fighter-6', 'tetris-effect', 'portal-2', 'dead-space-remake', 'silent-hill-2-remake', 'hollow-knight', 'celeste', 'super-smash-bros-ultimate', 'mario-kart-8-deluxe'];
 
     function generarCarousel(juegosLeft, juegoRight) {
-        const esTablet = window.innerWidth >= 768;
+        const threeColumns = window.innerWidth >= 480;
 
-        if (esTablet) {
-            // En tablet: 3 columnas
-            const col1 = juegosLeft.slice(0, 5);
-            const col2 = juegoRight.slice(0, 5);
-            const col3 = [...juegosLeft.slice(5), ...juegoRight.slice(5)].slice(0, 5);
+        let htmlColumnas = '';
 
+        if (threeColumns) {
+            // Para tablet y desktop: 3 columnas
+            // Columna 1: juegosLeft repetidos
             let html1 = '';
-            let html2 = '';
-            let html3 = '';
-
-            col1.forEach(juegoId => {
+            const juegosPorColumna1 = [...juegosLeft, ...juegosLeft, ...juegosLeft];
+            juegosPorColumna1.forEach(juegoId => {
                 const juego = juegos.find(j => j.img === juegoId);
                 if (juego) {
                     html1 += `
@@ -1471,7 +1468,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
 
-            col2.forEach(juegoId => {
+            // Columna 2: juegosRight repetidos
+            let html2 = '';
+            const juegosPorColumna2 = [...juegoRight, ...juegoRight, ...juegoRight];
+            juegosPorColumna2.forEach(juegoId => {
                 const juego = juegos.find(j => j.img === juegoId);
                 if (juego) {
                     html2 += `
@@ -1482,7 +1482,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
 
-            col3.forEach(juegoId => {
+            // Columna 3: juegosLeft repetidos
+            let html3 = '';
+            const juegosPorColumna3 = [...juegosLeft, ...juegosLeft, ...juegosLeft];
+            juegosPorColumna3.forEach(juegoId => {
                 const juego = juegos.find(j => j.img === juegoId);
                 if (juego) {
                     html3 += `
@@ -1493,24 +1496,20 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
 
-            carouselContainer.innerHTML = `
-                <div class="hero-catalogo-grid">
-                    <div class="grid-column">
-                        ${html1}
-                    </div>
-                    <div class="grid-column">
-                        ${html2}
-                    </div>
-                    <div class="grid-column">
-                        ${html3}
-                    </div>
+            htmlColumnas = `
+                <div class="grid-column grid-column-1">
+                    ${html1}
+                </div>
+                <div class="grid-column grid-column-2">
+                    ${html2}
+                </div>
+                <div class="grid-column grid-column-3">
+                    ${html3}
                 </div>
             `;
         } else {
-            // En mobile: 2 columnas
+            // Para mobile: 2 columnas
             let htmlIzquierda = '';
-            let htmlDerecha = '';
-
             const juegosPorColumna = [...juegosLeft, ...juegosLeft];
             juegosPorColumna.forEach(juegoId => {
                 const juego = juegos.find(j => j.img === juegoId);
@@ -1523,6 +1522,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
 
+            let htmlDerecha = '';
             const juegosPorColumnaDerecha = [...juegoRight, ...juegoRight];
             juegosPorColumnaDerecha.forEach(juegoId => {
                 const juego = juegos.find(j => j.img === juegoId);
@@ -1535,20 +1535,33 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
 
-            carouselContainer.innerHTML = `
-                <div class="hero-catalogo-grid">
-                    <div class="grid-column grid-column-left">
-                        ${htmlIzquierda}
-                    </div>
-                    <div class="grid-column grid-column-right">
-                        ${htmlDerecha}
-                    </div>
+            htmlColumnas = `
+                <div class="grid-column grid-column-left">
+                    ${htmlIzquierda}
+                </div>
+                <div class="grid-column grid-column-right">
+                    ${htmlDerecha}
                 </div>
             `;
         }
+
+        carouselContainer.innerHTML = `
+            <div class="hero-catalogo-grid">
+                ${htmlColumnas}
+            </div>
+        `;
     }
 
     generarCarousel(juegosIzquierda, juegosDerecha);
+
+    // Regenerar carousel al cambiar tamaño de pantalla
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            generarCarousel(juegosIzquierda, juegosDerecha);
+        }, 250);
+    });
 });
 
 // Filtros Catálogo
