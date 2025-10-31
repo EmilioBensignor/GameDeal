@@ -100,7 +100,7 @@ h3 {
     box-shadow:
         0 4px 16px rgba(0, 0, 0, 0.4),
         0 0 30px rgba(91, 192, 190, 0.2);
-        cursor: pointer;
+    cursor: pointer;
 }
 
 .black-button::before {
@@ -1467,18 +1467,24 @@ footer ul div li a {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    animation: scroll-vertical 30s linear infinite;
+    animation: scroll-vertical linear infinite;
 }
 
 .grid-column-left,
-.grid-column-1,
+.grid-column-1 {
+    animation-direction: normal;
+    animation-duration: 28s;
+}
+
 .grid-column-3 {
     animation-direction: normal;
+    animation-duration: 25s;
 }
 
 .grid-column-right,
 .grid-column-2 {
     animation-direction: reverse;
+    animation-duration: 30s;
 }
 
 .grid-column:hover {
@@ -1669,6 +1675,7 @@ footer ul div li a {
 }
 
 .juego-card {
+    height: 100%;
     display: flex;
     gap: 1rem;
     border-radius: 0.75rem;
@@ -1777,6 +1784,259 @@ footer ul div li a {
     gap: 1rem;
     background-color: rgba(0, 0, 0, 0.8);
     padding: 3rem 1.25rem;
+}
+
+/* Juego */
+
+.juego-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.hero-juego {
+    background: linear-gradient(135deg,
+            rgba(5, 20, 64, 0.95),
+            rgba(28, 37, 65, 0.85)),
+        url('../img/juegos/elden-ring.webp') center / cover no-repeat;
+    background-attachment: fixed;
+    padding: 4rem 1rem;
+    color: var(--color-blanco);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-juego::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(91, 192, 190, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(230, 125, 229, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.hero-juego>div {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-juego-content .subtitulo {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
+.hero-juego-imagen-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-juego-imagen-wrapper img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 0.75rem;
+    box-shadow: 0 20px 60px rgba(91, 192, 190, 0.3),
+        0 0 40px rgba(111, 255, 233, 0.2);
+}
+
+.juego-detalles {
+    padding: 3rem 1rem;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.juego-header {
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(91, 192, 190, 0.2);
+}
+
+.juego-info-principal {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.juego-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge.price {
+    background: rgba(91, 192, 190, 0.2);
+    border: 1px solid rgba(91, 192, 190, 0.5);
+    color: var(--color-light-aqua);
+}
+
+.badge.free {
+    background: rgba(100, 200, 100, 0.2);
+    border: 1px solid rgba(100, 200, 100, 0.5);
+    color: #64c864;
+}
+
+.badge.featured {
+    background: rgba(230, 125, 229, 0.2);
+    border: 1px solid rgba(230, 125, 229, 0.5);
+    color: var(--color-pink);
+}
+
+.badge.bestseller {
+    background: rgba(255, 165, 0, 0.2);
+    border: 1px solid rgba(255, 165, 0, 0.5);
+    color: #ffa500;
+}
+
+.badge.coming-soon {
+    background: rgba(200, 100, 100, 0.2);
+    border: 1px solid rgba(200, 100, 100, 0.5);
+    color: #d66666;
+}
+
+.juego-precio-compra {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.precio-grande {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--color-light-aqua);
+    margin: 0;
+}
+
+.juego-precio-compra button {
+    height: 3rem;
+    font-size: 0.9rem;
+}
+
+.juego-contenido {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.juego-seccion {
+    margin-bottom: 2.5rem;
+}
+
+.juego-seccion p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.caracteristicas-lista {
+    list-style: none;
+    display: grid;
+    gap: 0.75rem;
+}
+
+.caracteristicas-lista li {
+    padding-left: 1.5rem;
+    position: relative;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.caracteristicas-lista li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-light-aqua);
+    font-weight: bold;
+}
+
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.galeria-imagen {
+    width: 100%;
+    border-radius: 0.5rem;
+    object-fit: cover;
+    aspect-ratio: 16 / 9;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.galeria-imagen:hover {
+    transform: scale(1.05);
+}
+
+.resenas-contenedor {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.juego-info-box {
+    background: linear-gradient(135deg,
+            rgba(28, 37, 65, 0.4),
+            rgba(91, 192, 190, 0.1));
+    border: 1px solid rgba(91, 192, 190, 0.2);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.juego-info-box h4 {
+    color: var(--color-light-aqua);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.juego-info-box dl {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.juego-info-box dt {
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+}
+
+.juego-info-box dd {
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+    margin-left: 1rem;
+    font-size: 0.9rem;
+}
+
+.juegos-relacionados {
+    padding: 3rem 1rem;
+    background: linear-gradient(135deg,
+            rgba(5, 20, 64, 0.5),
+            rgba(28, 37, 65, 0.3));
+    border-top: 1px solid rgba(91, 192, 190, 0.1);
+}
+
+.juegos-relacionados>div {
+    max-width: 1440px;
+    margin: 0 auto;
 }
 
 /* 480px */
@@ -1985,6 +2245,34 @@ footer ul div li a {
 
     .catalogo-descuentos>div p {
         max-width: 25rem;
+    }
+
+    .hero-juego>div {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-juego-content h1 {
+        font-size: 1.75rem;
+    }
+
+    .juego-info-principal {
+        grid-template-columns: 1fr;
+    }
+
+    .juego-contenido {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-juego-imagen-wrapper img {
+        max-width: 100%;
+    }
+
+    .precio-grande {
+        font-size: 2rem;
+    }
+
+    .galeria-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
 }
 
