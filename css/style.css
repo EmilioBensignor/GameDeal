@@ -1148,6 +1148,7 @@ main {
     font-size: 1.125rem;
     font-weight: bold;
 }
+
 .card-comparar ul {
     width: 100%;
     display: flex;
@@ -1174,7 +1175,8 @@ main {
     color: var(--color-light-aqua);
 }
 
-.card-comparar>div p:last-of-type, .precio-grande {
+.card-comparar>div p:last-of-type,
+.precio-grande {
     background: linear-gradient(135deg,
             var(--color-light-aqua),
             var(--color-pink),
@@ -1929,15 +1931,21 @@ footer ul div li a {
     gap: 1rem;
 }
 
-.juego-detalles {
+.seccion-detalles h2 {
+    margin-bottom: 2rem;
+}
+
+.juego-detalles,
+.contenedor-detalles {
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 3rem;
 }
 
-.juego-detalles>div {
-    width: 100%;
-    gap: 1rem;
+.contenedor-detalles>div {
+    display: flex;
+    flex-direction: column;
 }
 
 .caracteristicas-lista {
@@ -1971,6 +1979,12 @@ footer ul div li a {
     border: 1px solid rgba(91, 192, 190, 0.2);
     border-radius: 0.75rem;
     padding: 1.5rem;
+}
+
+.juego-info-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .juego-info-box ul {
@@ -2197,24 +2211,39 @@ footer ul div li a {
         max-width: 25rem;
     }
 
+    .hero-juego {
+        padding-top: 10rem;
+        margin-top: -92px;
+    }
+
     .hero-juego>div {
-        grid-template-columns: 1fr;
+        flex-direction: row;
+        align-items: flex-start;
     }
 
-    .hero-juego-content h1 {
-        font-size: 1.75rem;
-    }
-
-    .juego-info-principal {
-        grid-template-columns: 1fr;
-    }
-
-    .juego-contenido {
-        grid-template-columns: 1fr;
+    .hero-juego-imagen-wrapper,
+    .hero-juego-content {
+        width: 50%;
     }
 
     .hero-juego-imagen-wrapper img {
         max-width: 100%;
+    }
+
+    .puntuacion-container p,
+    .puntuacion-container span {
+        font-size: 0.875rem;
+    }
+
+    .juego-detalles .contenedor-detalles {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        gap: 2rem;
+    }
+
+    .contenedor-detalles>div {
+        width: 50%;
     }
 }
 
@@ -2615,6 +2644,44 @@ footer ul div li a {
     .juego-card {
         align-items: stretch;
     }
+
+    .hero-juego {
+        padding-top: 14rem;
+        margin-top: -124px;
+    }
+
+    .juego-badges span {
+        font-size: 0.875rem;
+    }
+
+    .puntuacion-container p,
+    .puntuacion-container span {
+        font-size: 1rem;
+    }
+
+    .juego-descripcion-corta {
+        font-size: 1.125rem;
+    }
+
+    .juego-detalles {
+        flex-direction: row;
+        align-items: stretch;
+        gap: 2rem;
+    }
+
+    .juego-detalles>.juego-info-box:first-of-type,
+    .contenedor-detalles {
+        width: 50%;
+    }
+
+    .juego-info-box li strong {
+        font-size: 1rem;
+    }
+
+    .juego-info-box li span,
+    .juego-info-box li small {
+        font-size: 0.875rem;
+    }
 }
 
 /* 1440px */
@@ -2753,5 +2820,27 @@ footer ul div li a {
 
     .hero-catalogo>div {
         gap: 4rem;
+    }
+
+    .hero-juego {
+        padding-top: 16rem;
+        margin-top: -140px;
+    }
+
+    .hero-juego>div {
+        gap: 3rem;
+    }
+
+    .hero-juego-content {
+        gap: 1.5rem;
+    }
+
+    .puntuacion-container p,
+    .puntuacion-container span p {
+        font-size: 1.125rem;
+    }
+
+    .juego-descripcion-corta {
+        font-size: 1.25rem;
     }
 }
