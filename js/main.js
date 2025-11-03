@@ -1,3 +1,6 @@
+const esEnPages = window.location.pathname.includes('/pages/');
+const prefixoImagenes = esEnPages ? '../' : './';
+
 // Categorias
 const categorias = [
     {
@@ -350,16 +353,45 @@ document.addEventListener('DOMContentLoaded', function () {
     actualizarCarousel();
 });
 
+function generarPreciosDinamicos(precioBase) {
+    const variaciones = [
+        { porcentaje: -0.10, nombre: 'Steam' },
+        { porcentaje: -0.05, nombre: 'Epic Games' },
+        { porcentaje: 0.05, nombre: 'GOG' }
+    ];
+
+    return variaciones.map(v => ({
+        plataforma: v.nombre,
+        precio: (precioBase * (1 + v.porcentaje)).toFixed(2),
+        lista: [
+            v.nombre === 'Steam' ? "Biblioteca integrada en la nube" : "Juegos gratis todas las semanas",
+            v.nombre === 'Steam' ? "Reembolsos hasta 14 días" : "Logros y sistema de recompensas",
+            v.nombre === 'Steam' ? "Workshop con mods de la comunidad" : "Crossplay con otras plataformas",
+        ],
+    }));
+}
+
+function cortarDescripcion(texto) {
+    if (!texto) return '';
+    const primerPunto = texto.indexOf('.');
+    if (primerPunto === -1) {
+        return texto;
+    }
+    return texto.substring(0, primerPunto + 1);
+}
+
 // Comparar precios
 document.addEventListener('DOMContentLoaded', function () {
     const contenedorComparar = document.getElementById('contenedor-comparar');
 
     if (!contenedorComparar) return;
 
-    function generarComparaciones() {
+    function generarComparaciones(precioBase = null) {
         contenedorComparar.innerHTML = '';
 
-        comparaciones.forEach(comparacion => {
+        const comparacionesAUsar = esEnPages && precioBase ? generarPreciosDinamicos(precioBase) : comparaciones;
+
+        comparacionesAUsar.forEach(comparacion => {
             const tarjeta = document.createElement('div');
             tarjeta.className = 'card-comparar';
             tarjeta.innerHTML = `
@@ -377,6 +409,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     generarComparaciones();
+
+    window.generarComparacionesConPrecio = generarComparaciones;
 });
 
 // Como funciona
@@ -424,7 +458,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <span class="estrellas">${estrellas}</span>
                 <p>${opinion.texto}</p>
                 <div class="autor">
-                    <img src="./img/opiniones/${opinion.img}.webp" alt="${opinion.nombre}">
+                    <img src="${prefixoImagenes}img/opiniones/${opinion.img}.webp" alt="${opinion.nombre}">
                     <div>
                         <p>${opinion.nombre}</p>
                         <p>${opinion.descripcion}</p>
@@ -1152,22 +1186,30 @@ document.addEventListener('DOMContentLoaded', function () {
     document.title = `GameDeal - ${juegoSeleccionado.nombre}`;
 
     document.getElementById('juego-titulo').textContent = juegoSeleccionado.nombre;
-    document.getElementById('juego-descripcion').textContent = juegoSeleccionado.texto;
+
+    const descripcionCortaElement = document.getElementById('juego-descripcion-corta');
+    if (descripcionCortaElement) {
+        descripcionCortaElement.textContent = cortarDescripcion(juegoSeleccionado.texto);
+    }
 
     const imagenHero = document.createElement('img');
     imagenHero.src = `../img/juegos/${juegoSeleccionado.img}.webp`;
     imagenHero.alt = juegoSeleccionado.nombre;
-    document.getElementById('hero-juego-imagen').appendChild(imagenHero);
 
-    document.getElementById('juego-nombre').textContent = juegoSeleccionado.nombre;
+    const imagenWrapper = document.getElementById('hero-juego-imagen');
+    if (imagenWrapper) {
+        imagenWrapper.innerHTML = '';
+        imagenWrapper.appendChild(imagenHero);
+    }
+
     document.getElementById('juego-categoria').textContent = juegoSeleccionado.categoria;
-    document.getElementById('juego-descripcion-completa').textContent = juegoSeleccionado.texto;
 
     if (juegoSeleccionado.informacion) {
-        const infoBox = document.querySelector('.juego-info-box');
-        if (infoBox) {
-            const dl = infoBox.querySelector('dl');
-            dl.innerHTML = `
+        const infoBoxes = document.querySelectorAll('.juego-info-box');
+        if (infoBoxes.length > 1) {
+            const dl = infoBoxes[1].querySelector('dl');
+            if (dl) {
+                dl.innerHTML = `
                 <dt>Categoría:</dt>
                 <dd id="juego-categoria">${juegoSeleccionado.categoria}</dd>
                 <dt>Desarrollador:</dt>
@@ -1183,81 +1225,77 @@ document.addEventListener('DOMContentLoaded', function () {
                 <dt>Idiomas:</dt>
                 <dd>${juegoSeleccionado.informacion.idiomas || 'Español, Inglés'}</dd>
             `;
+            }
         }
     }
 
     if (juegoSeleccionado.freeToPlay) {
         document.getElementById('juego-precio').textContent = 'GRATIS';
+        if (window.generarComparacionesConPrecio) {
+            window.generarComparacionesConPrecio(0);
+        }
     } else {
         document.getElementById('juego-precio').textContent = `$${juegoSeleccionado.precio.toFixed(2)}`;
+        if (window.generarComparacionesConPrecio) {
+            window.generarComparacionesConPrecio(juegoSeleccionado.precio);
+        }
     }
 
     const badgesContainer = document.getElementById('juego-badges');
-    badgesContainer.innerHTML = '';
+    if (badgesContainer) {
+        badgesContainer.innerHTML = '';
 
-    if (juegoSeleccionado.freeToPlay) {
-        const badge = document.createElement('span');
-        badge.className = 'badge free';
-        badge.textContent = 'FREE TO PLAY';
-        badgesContainer.appendChild(badge);
-    } else {
-        const badge = document.createElement('span');
-        badge.className = 'badge price';
-        badge.textContent = `$${juegoSeleccionado.precio.toFixed(2)} USD`;
-        badgesContainer.appendChild(badge);
-    }
+        if (juegoSeleccionado.freeToPlay) {
+            const badge = document.createElement('span');
+            badge.className = 'badge free';
+            badge.textContent = 'FREE TO PLAY';
+            badgesContainer.appendChild(badge);
+        }
 
-    if (juegoSeleccionado.masJugado) {
-        const badge = document.createElement('span');
-        badge.className = 'badge featured';
-        badge.textContent = 'MÁS JUGADO';
-        badgesContainer.appendChild(badge);
-    }
+        if (juegoSeleccionado.masJugado) {
+            const badge = document.createElement('span');
+            badge.className = 'badge featured';
+            badge.textContent = 'MÁS JUGADO';
+            badgesContainer.appendChild(badge);
+        }
 
-    if (juegoSeleccionado.masVendido) {
-        const badge = document.createElement('span');
-        badge.className = 'badge bestseller';
-        badge.textContent = 'MÁS VENDIDO';
-        badgesContainer.appendChild(badge);
-    }
+        if (juegoSeleccionado.masVendido) {
+            const badge = document.createElement('span');
+            badge.className = 'badge bestseller';
+            badge.textContent = 'MÁS VENDIDO';
+            badgesContainer.appendChild(badge);
+        }
 
-    if (juegoSeleccionado.proximamente) {
-        const badge = document.createElement('span');
-        badge.className = 'badge coming-soon';
-        badge.textContent = 'PRÓXIMAMENTE';
-        badgesContainer.appendChild(badge);
+        if (juegoSeleccionado.proximamente) {
+            const badge = document.createElement('span');
+            badge.className = 'badge coming-soon';
+            badge.textContent = 'PRÓXIMAMENTE';
+            badgesContainer.appendChild(badge);
+        }
     }
 
     const caracteristicasContainer = document.getElementById('juego-caracteristicas');
-    caracteristicasContainer.innerHTML = '';
+    if (caracteristicasContainer) {
+        caracteristicasContainer.innerHTML = '';
 
-    if (juegoSeleccionado.caracteristicas && juegoSeleccionado.caracteristicas.length > 0) {
-        juegoSeleccionado.caracteristicas.forEach(caracteristica => {
-            const li = document.createElement('li');
-            li.innerHTML = `<strong>${caracteristica.titulo}</strong><br><small>${caracteristica.texto}</small>`;
-            caracteristicasContainer.appendChild(li);
-        });
-    } else {
-        const caracteristicasDefault = [
-            `Categoría: ${juegoSeleccionado.categoria}`,
-            'Gráficos de alta calidad',
-            'Múltiples modos de juego'
-        ];
-        caracteristicasDefault.forEach(caracteristica => {
-            const li = document.createElement('li');
-            li.textContent = caracteristica;
-            caracteristicasContainer.appendChild(li);
-        });
-    }
-
-    const galeriaContainer = document.getElementById('juego-galeria');
-    galeriaContainer.innerHTML = '';
-    for (let i = 0; i < 4; i++) {
-        const imgElement = document.createElement('img');
-        imgElement.src = `../img/juegos/${juegoSeleccionado.img}.webp`;
-        imgElement.alt = `${juegoSeleccionado.nombre} - Galería ${i + 1}`;
-        imgElement.className = 'galeria-imagen';
-        galeriaContainer.appendChild(imgElement);
+        if (juegoSeleccionado.caracteristicas && juegoSeleccionado.caracteristicas.length > 0) {
+            juegoSeleccionado.caracteristicas.forEach(caracteristica => {
+                const li = document.createElement('li');
+                li.innerHTML = `<strong>${caracteristica.titulo}</strong><small>${caracteristica.texto}</small>`;
+                caracteristicasContainer.appendChild(li);
+            });
+        } else {
+            const caracteristicasDefault = [
+                `Categoría: ${juegoSeleccionado.categoria}`,
+                'Gráficos de alta calidad',
+                'Múltiples modos de juego'
+            ];
+            caracteristicasDefault.forEach(caracteristica => {
+                const li = document.createElement('li');
+                li.textContent = caracteristica;
+                caracteristicasContainer.appendChild(li);
+            });
+        }
     }
 
     const juegosRelacionados = juegos
@@ -1266,55 +1304,67 @@ document.addEventListener('DOMContentLoaded', function () {
         .slice(0, 6);
 
     const relacionadosContainer = document.getElementById('juegos-relacionados-container');
-    relacionadosContainer.innerHTML = '';
+    if (relacionadosContainer) {
+        relacionadosContainer.innerHTML = '';
 
-    juegosRelacionados.forEach(juego => {
-        const link = document.createElement('a');
-        link.href = `./juego.html?id=${encodeURIComponent(juego.img)}`;
-        link.className = 'juego-card-link';
+        juegosRelacionados.forEach(juego => {
+            const link = document.createElement('a');
+            link.href = `./juego.html?id=${encodeURIComponent(juego.img)}`;
+            link.className = 'juego-card-link';
 
-        const card = document.createElement('div');
-        card.className = 'juego-card';
+            const card = document.createElement('div');
+            card.className = 'juego-card';
 
-        let badgesHTML = '';
-        if (juego.freeToPlay) {
-            badgesHTML += '<span class="badge free">FREE TO PLAY</span>';
-        } else {
-            badgesHTML += `<span class="badge price">$${juego.precio} USD</span>`;
-        }
-        if (juego.masJugado) {
-            badgesHTML += '<span class="badge featured">MÁS JUGADO</span>';
-        }
-        if (juego.masVendido) {
-            badgesHTML += '<span class="badge bestseller">MÁS VENDIDO</span>';
-        }
+            let badgesHTML = '';
+            if (juego.freeToPlay) {
+                badgesHTML += '<span class="badge free">FREE TO PLAY</span>';
+            } else {
+                badgesHTML += `<span class="badge price">$${juego.precio} USD</span>`;
+            }
+            if (juego.masJugado) {
+                badgesHTML += '<span class="badge featured">MÁS JUGADO</span>';
+            }
+            if (juego.masVendido) {
+                badgesHTML += '<span class="badge bestseller">MÁS VENDIDO</span>';
+            }
 
-        card.innerHTML = `
-            <img src="../img/juegos/${juego.img}.webp" alt="${juego.nombre}">
-            <div class="juego-card-info">
-                <div>
-                    <h3>${juego.nombre}</h3>
-                    <p class="juego-card-categoria">${juego.categoria}</p>
+            card.innerHTML = `
+                <img src="../img/juegos/${juego.img}.webp" alt="${juego.nombre}">
+                <div class="juego-card-info">
+                    <div>
+                        <h3>${juego.nombre}</h3>
+                        <p class="juego-card-categoria">${juego.categoria}</p>
+                    </div>
+                    <div class="juego-card-meta">
+                        ${badgesHTML}
+                    </div>
                 </div>
-                <div class="juego-card-meta">
-                    ${badgesHTML}
-                </div>
-            </div>
-        `;
-        link.appendChild(card);
-        relacionadosContainer.appendChild(link);
-    });
+            `;
+            link.appendChild(card);
+            relacionadosContainer.appendChild(link);
+        });
+    }
 
     if (juegoSeleccionado.puntaje) {
-        document.getElementById('juego-puntaje').textContent = juegoSeleccionado.puntaje.toFixed(1);
+        const puntajeElement = document.getElementById('juego-puntaje');
+        const estrellasElement = document.getElementById('juego-estrellas');
 
-        const puntaje = Math.round(juegoSeleccionado.puntaje);
-        let estrellas = '★'.repeat(puntaje) + '☆'.repeat(5 - puntaje);
-        document.getElementById('juego-estrellas').textContent = estrellas;
+        if (puntajeElement) {
+            puntajeElement.textContent = juegoSeleccionado.puntaje.toFixed(1);
+        }
+
+        if (estrellasElement) {
+            const puntaje = Math.round(juegoSeleccionado.puntaje);
+            let estrellas = '★'.repeat(puntaje) + '☆'.repeat(5 - puntaje);
+            estrellasElement.textContent = estrellas;
+        }
     }
 
     if (juegoSeleccionado.cantidadReviews) {
-        const formato = new Intl.NumberFormat('es-ES').format(juegoSeleccionado.cantidadReviews);
-        document.getElementById('juego-cantidad-reviews').textContent = formato;
+        const cantidadElement = document.getElementById('juego-cantidad-reviews');
+        if (cantidadElement) {
+            const formato = new Intl.NumberFormat('es-ES').format(juegoSeleccionado.cantidadReviews);
+            cantidadElement.textContent = formato;
+        }
     }
 });

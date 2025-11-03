@@ -1091,6 +1091,11 @@ main {
     color: rgba(255, 255, 255, 0.8);
     font-size: 0.875rem;
     line-height: 1.4;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    overflow: hidden;
 }
 
 
@@ -1143,11 +1148,6 @@ main {
     font-size: 1.125rem;
     font-weight: bold;
 }
-
-.card-comparar>div p:last-of-type {
-    font-size: 2.5rem;
-}
-
 .card-comparar ul {
     width: 100%;
     display: flex;
@@ -1174,7 +1174,7 @@ main {
     color: var(--color-light-aqua);
 }
 
-.card-comparar>div p:last-of-type {
+.card-comparar>div p:last-of-type, .precio-grande {
     background: linear-gradient(135deg,
             var(--color-light-aqua),
             var(--color-pink),
@@ -1182,6 +1182,7 @@ main {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    font-size: 2.5rem;
 }
 
 /* Como funciona */
@@ -1794,15 +1795,10 @@ footer ul div li a {
 }
 
 .hero-juego {
-    background: linear-gradient(135deg,
-            rgba(5, 20, 64, 0.95),
-            rgba(28, 37, 65, 0.85)),
-        url('../img/juegos/elden-ring.webp') center / cover no-repeat;
-    background-attachment: fixed;
-    padding: 4rem 1rem;
-    color: var(--color-blanco);
-    position: relative;
-    overflow: hidden;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    margin-top: -84px;
 }
 
 .hero-juego::before {
@@ -1812,20 +1808,34 @@ footer ul div li a {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 20% 50%, rgba(91, 192, 190, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(230, 125, 229, 0.1) 0%, transparent 50%);
     pointer-events: none;
 }
 
 .hero-juego>div {
     max-width: 1440px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     gap: 2rem;
-    align-items: center;
     position: relative;
     z-index: 1;
+    margin: 0 auto;
+}
+
+.hero-juego-content h1 {
+    text-align: left;
+}
+
+.precio-grande {
+    font-weight: bold;
+}
+
+.hero-juego-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
 }
 
 .hero-juego-content .subtitulo {
@@ -1848,30 +1858,29 @@ footer ul div li a {
         0 0 40px rgba(111, 255, 233, 0.2);
 }
 
-.juego-detalles {
-    padding: 3rem 1rem;
-    max-width: 1440px;
-    margin: 0 auto;
+.puntuacion-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-light-aqua);
 }
 
-.juego-header {
-    margin-bottom: 3rem;
-    padding-bottom: 3rem;
-    border-bottom: 1px solid rgba(91, 192, 190, 0.2);
+.puntuacion-container p,
+.puntuacion-container span {
+    font-size: 0.75rem;
 }
 
-.juego-info-principal {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    align-items: flex-start;
+.juego-descripcion-corta {
+    text-align: left;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    line-height: 1.6;
 }
 
 .juego-badges {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-bottom: 1rem;
 }
 
 .badge {
@@ -1920,45 +1929,31 @@ footer ul div li a {
     gap: 1rem;
 }
 
-.precio-grande {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: var(--color-light-aqua);
-    margin: 0;
-}
-
-.juego-precio-compra button {
-    height: 3rem;
-    font-size: 0.9rem;
-}
-
-.juego-contenido {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
+.juego-detalles {
+    display: flex;
+    flex-direction: column;
     gap: 3rem;
-    margin-bottom: 3rem;
 }
 
-.juego-seccion {
-    margin-bottom: 2.5rem;
-}
-
-.juego-seccion p {
-    color: rgba(255, 255, 255, 0.8);
-    line-height: 1.6;
-    font-size: 0.95rem;
+.juego-detalles>div {
+    width: 100%;
+    gap: 1rem;
 }
 
 .caracteristicas-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     list-style: none;
-    display: grid;
-    gap: 0.75rem;
 }
 
 .caracteristicas-lista li {
-    padding-left: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
     position: relative;
-    color: rgba(255, 255, 255, 0.8);
+    text-align: left;
+    padding-left: 1.5rem;
 }
 
 .caracteristicas-lista li::before {
@@ -1969,29 +1964,6 @@ footer ul div li a {
     font-weight: bold;
 }
 
-.galeria-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-}
-
-.galeria-imagen {
-    width: 100%;
-    border-radius: 0.5rem;
-    object-fit: cover;
-    aspect-ratio: 16 / 9;
-    transition: transform 0.3s ease;
-    cursor: pointer;
-}
-
-.galeria-imagen:hover {
-    transform: scale(1.05);
-}
-
-.resenas-contenedor {
-    color: rgba(255, 255, 255, 0.6);
-}
-
 .juego-info-box {
     background: linear-gradient(135deg,
             rgba(28, 37, 65, 0.4),
@@ -1999,44 +1971,22 @@ footer ul div li a {
     border: 1px solid rgba(91, 192, 190, 0.2);
     border-radius: 0.75rem;
     padding: 1.5rem;
-    margin-bottom: 2rem;
 }
 
-.juego-info-box h4 {
-    color: var(--color-light-aqua);
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-}
-
-.juego-info-box dl {
+.juego-info-box ul {
     display: grid;
     gap: 0.75rem;
 }
 
-.juego-info-box dt {
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.9);
+.juego-info-box li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
     font-size: 0.9rem;
 }
 
-.juego-info-box dd {
-    color: rgba(255, 255, 255, 0.7);
-    margin: 0;
-    margin-left: 1rem;
-    font-size: 0.9rem;
-}
-
-.juegos-relacionados {
-    padding: 3rem 1rem;
-    background: linear-gradient(135deg,
-            rgba(5, 20, 64, 0.5),
-            rgba(28, 37, 65, 0.3));
-    border-top: 1px solid rgba(91, 192, 190, 0.1);
-}
-
-.juegos-relacionados>div {
-    max-width: 1440px;
-    margin: 0 auto;
+.juego-info-box li span {
+    font-size: 0.875rem;
 }
 
 /* 480px */
@@ -2265,14 +2215,6 @@ footer ul div li a {
 
     .hero-juego-imagen-wrapper img {
         max-width: 100%;
-    }
-
-    .precio-grande {
-        font-size: 2rem;
-    }
-
-    .galeria-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
 }
 

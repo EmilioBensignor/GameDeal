@@ -65,103 +65,112 @@
     <main>
         <section class="hero-juego" id="hero-juego">
             <div>
+                <div class="hero-juego-imagen-wrapper" id="hero-juego-imagen"></div>
                 <div class="hero-juego-content">
                     <h1 id="juego-titulo">Cargando...</h1>
-                    <p class="subtitulo" id="juego-descripcion">Espera un momento</p>
+                    <p id="juego-precio" class="precio-grande">$0.00</p>
+                    <div id="juego-badges" class="juego-badges"></div>
+                    <div id="juego-puntuacion" class="puntuacion-container">
+                        <div id="juego-estrellas" class="estrellas">★★★★☆</div>
+                        <p>
+                            <span id="juego-puntaje">(4.5</span>/5 estrellas)
+                        </p>
+                        <p>
+                            - <span id="juego-cantidad-reviews">1,234</span> reseñas
+                        </p>
+                    </div>
+                    <p id="juego-descripcion-corta" class="juego-descripcion-corta"></p>
                 </div>
-                <div class="hero-juego-imagen-wrapper" id="hero-juego-imagen"></div>
             </div>
         </section>
         <div class="parallax-content">
             <section class="juego-detalles">
-                <div>
-                    <div class="juego-header">
-                        <div class="juego-info-principal">
-                            <div>
-                                <h2 id="juego-nombre">Nombre del juego</h2>
-                                <div id="juego-badges" class="juego-badges"></div>
-                            </div>
-                            <div class="juego-precio-compra">
-                                <p id="juego-precio" class="precio-grande">$0.00</p>
-                            </div>
-                        </div>
+                <div class="juego-info-box">
+                    <h2>Características</h2>
+                    <ul id="juego-caracteristicas" class="caracteristicas-lista"></ul>
+                </div>
+                <div class="juego-info-box">
+                    <h2>Información del Juego</h2>
+                    <ul>
+                        <li>
+                            <strong>Categoría:</strong>
+                            <span id="juego-categoria">-</span>
+                        </li>
+                        <li>
+                            <strong>Desarrollador:</strong>
+                            <span>GameDeal Studio</span>
+                        </li>
+                        <li>
+                            <strong>Plataforma:</strong>
+                            <span>PC, PlayStation, Xbox</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="juego-info-box">
+                    <h2>Requisitos mínimos</h2>
+                    <ul>
+                        <li>
+                            <strong>SO:</strong>
+                            <span>Windows 10 64-bit</span>
+                        </li>
+                        <li>
+                            <strong>CPU:</strong>
+                            <span>Intel i5 o superior</span>
+                        </li>
+                        <li>
+                            <strong>RAM:</strong>
+                            <span>8 GB</span>
+                        </li>
+                        <li>
+                            <strong>Almacenamiento:</strong>
+                            <span>50 GB SSD</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section>
+                <div class="donde-comprar">
+                    <div>
+                        <h2>Dónde conviene comprar</h2>
+                        <p class="subtitulo">
+                            Descubrí las mejores ofertas del día en videojuegos y ahorrá en tus compras.
+                        </p>
                     </div>
-
-                    <div class="juego-contenido">
-                        <div class="juego-columna-principal">
-                            <div class="juego-seccion">
-                                <h3>Sobre este juego</h3>
-                                <p id="juego-descripcion-completa"></p>
-                            </div>
-
-                            <div class="juego-seccion">
-                                <h3>Características</h3>
-                                <ul id="juego-caracteristicas" class="caracteristicas-lista">
-                                    <li>Juego emocionante</li>
-                                    <li>Gráficos increíbles</li>
-                                    <li>Múltiples modos de juego</li>
-                                </ul>
-                            </div>
-
-                            <div class="juego-seccion">
-                                <h3>Galería de imágenes</h3>
-                                <div id="juego-galeria" class="galeria-grid">
-                                    <!-- Se generará dinámicamente -->
-                                </div>
-                            </div>
-
-                            <div class="juego-seccion">
-                                <h3>Reseñas y Puntuación</h3>
-                                <div id="juego-puntuacion" class="puntuacion-container" style="margin-bottom: 1.5rem;">
-                                    <div style="display: flex; align-items: center; gap: 1rem;">
-                                        <div style="font-size: 2.5rem; font-weight: bold; color: var(--color-light-aqua);">
-                                            <span id="juego-puntaje">4.5</span>/5
-                                        </div>
-                                        <div>
-                                            <div id="juego-estrellas" style="color: #ffa500; font-size: 1.5rem;">★★★★☆</div>
-                                            <p style="margin: 0.5rem 0 0 0; color: rgba(255, 255, 255, 0.6);">
-                                                <span id="juego-cantidad-reviews">1,234</span> reseñas
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="juego-resenas" class="resenas-contenedor">
-                                    <p>Aún no hay reseñas detalladas. ¡Sé el primero en comentar!</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="juego-columna-lateral">
-                            <div class="juego-info-box">
-                                <h4>Información del Juego</h4>
-                                <dl>
-                                    <dt>Categoría:</dt>
-                                    <dd id="juego-categoria">-</dd>
-                                    <dt>Desarrollador:</dt>
-                                    <dd>GameDeal Studio</dd>
-                                    <dt>Plataforma:</dt>
-                                    <dd>PC, PlayStation, Xbox</dd>
-                                </dl>
-                            </div>
-
-                            <div class="juego-info-box">
-                                <h4>Requisitos mínimos</h4>
-                                <dl>
-                                    <dt>SO:</dt>
-                                    <dd>Windows 10 64-bit</dd>
-                                    <dt>CPU:</dt>
-                                    <dd>Intel i5 o superior</dd>
-                                    <dt>RAM:</dt>
-                                    <dd>8 GB</dd>
-                                    <dt>Almacenamiento:</dt>
-                                    <dd>50 GB SSD</dd>
-                                </dl>
-                            </div>
-                        </div>
+                    <div id="contenedor-comparar" class="contenedor-comparar">
                     </div>
                 </div>
             </section>
-
+            <section>
+                <div class="opiniones">
+                    <div>
+                        <h2>Lo que opinan los gamers</h2>
+                        <p class="subtitulo">
+                            Nuestra comunidad ya está ahorrando y descubriendo sus próximos juegos favoritos.
+                        </p>
+                    </div>
+                    <div class="carousel">
+                        <div>
+                            <div id="contenedor-opiniones"
+                                class="contenedor-opiniones flex transition-transform duration-500 ease-in-out">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flechas-carousel flechas-opiniones">
+                        <button id="anterior-opiniones" class="flecha-carousel flecha-izquierda">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24">
+                                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m15 6l-6 6l6 6" />
+                            </svg>
+                        </button>
+                        <button id="siguiente-opiniones" class="flecha-carousel flecha-derecha">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24">
+                                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m9 6l6 6l-6 6" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </section>
             <section class="juegos-relacionados">
                 <div>
                     <h2>Juegos similares</h2>
