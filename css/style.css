@@ -1369,6 +1369,8 @@ main {
 /* Footer */
 
 footer {
+    position: relative;
+    z-index: 1;
     background-color: var(--color-negro);
     color: var(--color-negro);
     padding: 3rem 1.25rem;
@@ -2183,6 +2185,10 @@ footer ul div li a {
         flex-direction: row;
     }
 
+    .hero-catalogo {
+        margin-top: -92px;
+    }
+
     .juego-card img {
         width: auto;
         height: 6.5rem;
@@ -2816,6 +2822,10 @@ footer ul div li a {
 
     .mas-jugado .flechas-carousel {
         display: none;
+    }
+
+    .hero-catalogo {
+        margin-top: -140px;
     }
 
     .hero-catalogo>div {
