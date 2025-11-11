@@ -65,11 +65,120 @@
     <main>
         <section class="hero">
             <video src="../video/Hero.mp4" autoplay muted loop></video>
-            <div>
-                <h1>Lanzamientos</h1>
+            <div class="hero-lanzamientos">
+                <h1>Los estrenos más esperados</h1>
+                <p>Mantente al día con los estrenos más esperados en PC. Descubre fechas de salida, detalles clave y
+                    prepárate para no perderte nada.</p>
             </div>
         </section>
+        <div class="parallax-content">
+            <section class="estrenos-esperados">
+                <div>
+                    <h2>Los estrenos más esperados</h2>
+                    <p>Mantente al día con los estrenos más esperados en PC. Descubre fechas, detalles sobre próximas
+                        para el próximo mes.</p>
+                    <div id="estrenos-lista" class="estrenos-lista"></div>
+                </div>
+            </section>
+
+            <section class="descubre-seccion">
+                <div>
+                    <h2>Descubre lo que viene en el mundo gamer</h2>
+                    <div class="descubre-grid">
+                        <div class="descubre-card">
+                            <div class="descubre-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                            </div>
+                            <h3>Sigue de cerca los lanzamientos esperados</h3>
+                            <p>Accede a todo el lanzamientos y títulos que vienen en los próximos meses para que no te
+                                pierdas ningún estrenos.</p>
+                        </div>
+                        <div class="descubre-card">
+                            <div class="descubre-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 17"></polyline>
+                                    <polyline points="17 6 23 6 23 12"></polyline>
+                                </svg>
+                            </div>
+                            <h3>Elige los juegos que más te interesan</h3>
+                            <p>Filtra los títulos por tus géneros favoritos y descubre qué juegos nuevos estarán
+                                disponibles que se alineen con tus gustos.</p>
+                        </div>
+                        <div class="descubre-card">
+                            <div class="descubre-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <path
+                                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <h3>Explora los juegos que marcaran tendencia</h3>
+                            <p>Descubre los títulos más esperados y las tendencias del sector para saber qué juegos del
+                                futuro dominarán la comunidad.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="carousel-estrenos">
+                <div>
+                    <h2>Próximos estrenos imperdibles</h2>
+                    <p>Explora los próximos lanzamientos que están garantizados para causar expectativas en la comunidad
+                        gamer.</p>
+                    <div class="carousel-container">
+                        <button class="carousel-btn prev-btn" id="prev-carousel">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                            </svg>
+                        </button>
+                        <div class="carousel-wrapper">
+                            <div id="carousel-images" class="carousel-images"></div>
+                        </div>
+                        <button class="carousel-btn next-btn" id="next-carousel">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                    <div id="carousel-dots" class="carousel-dots"></div>
+                </div>
+            </section>
+
+            <section class="newsletter-lanzamientos">
+                <div>
+                    <h2>¡No te pierdas los estrenos!</h2>
+                    <p>Suscribete y recibe en tu correo los próximos lanzamientos y estrenos exclusivos en videojuegos.
+                    </p>
+                    <div class="newsletter-form">
+                        <div class="newsletter-input-wrapper">
+                            <input type="email" id="email-lanzamientos" placeholder="Ingresá tu email" required>
+                            <button class="primary-button" id="btn-recibir-lanzamientos">Recibir estrenos</button>
+                        </div>
+                        <span class="error-message" id="error-email-lanzamientos"></span>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
+    <div id="modal-exito-lanzamientos" class="modal">
+        <div class="modal-content modal-exito">
+            <button class="modal-close" id="cerrar-modal-lanzamientos">&times;</button>
+            <div class="exito-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path fill="#6FFFE9" d="M9 16.17L4.83 12l-1.42 1.41L9 19L21 7l-1.41-1.41z" />
+                </svg>
+            </div>
+            <h2>¡Suscripción exitosa!</h2>
+            <p>Te has suscrito correctamente. Pronto recibirás los mejores lanzamientos en tu correo.</p>
+        </div>
+    </div>
     <footer>
         <div>
             <a href="../index.html" class="logo">
@@ -98,6 +207,7 @@
     </footer>
     <script src="../js/juegos.js"></script>
     <script src="../js/main.js"></script>
+    <script src="../js/lanzamientos.js"></script>
 </body>
 
 </html>
