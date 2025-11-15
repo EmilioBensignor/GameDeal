@@ -73,17 +73,17 @@ const comparaciones = [
 const comoFunciona = [
     {
         titulo: "Buscá",
-        img: "buscar",
+        img: "Buscar",
         texto: "Ingresá el nombre del juego que querés en nuestro buscador. Encontrá títulos de todas las plataformas en segundos.",
     },
     {
         titulo: "Compará",
-        img: "comparar",
+        img: "Comparar",
         texto: "Revisá precios en tiempo real de Steam, Epic Games, GOG y más tiendas. Filtrá por región y moneda para ver ofertas exactas.",
     },
     {
         titulo: "Ahorrá",
-        img: "ahorrar",
+        img: "Ahorrar",
         texto: "Comprá al mejor precio disponible y ahorrá hasta un 70% en tus juegos favoritos. Simple, rápido y sin vueltas.",
     },
 ];
