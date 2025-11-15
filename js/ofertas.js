@@ -165,9 +165,22 @@ function mostrarDropdownBusqueda(terminoBusqueda) {
 
     dropdown.querySelectorAll('.ofertas-dropdown-item').forEach(item => {
         item.addEventListener('click', () => {
-            const nombreJuego = item.textContent.trim();
-            searchOfertasInput.value = nombreJuego;
-            buscarOferta(nombreJuego);
+            const juegoId = item.dataset.juego;
+            const juegoSeleccionado = juegos.find(j => j.img === juegoId);
+
+            if (juegoSeleccionado) {
+                searchOfertasInput.value = juegoSeleccionado.nombre;
+                mostrarResultados([juegoSeleccionado]);
+
+                const dropdown = document.getElementById('ofertas-dropdown');
+                if (dropdown) {
+                    dropdown.style.display = 'none';
+                }
+
+                setTimeout(() => {
+                    scrollToElement(ofertasSection);
+                }, 100);
+            }
         });
     });
 }
